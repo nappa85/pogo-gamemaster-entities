@@ -71,6 +71,7 @@ pub struct PlayerLevel {
     #[serde(rename = "rankNum")]
     pub rank_num: Vec<u8>,
     #[serde(rename = "requiredExp")]
+    #[serde(alias = "requiredExperience")]
     pub required_exp: Vec<u32>,
     #[serde(rename = "cpMultiplier")]
     pub cp_multiplier: Vec<f64>,
@@ -350,11 +351,21 @@ pub struct CombatStatStageSettings {
 #[cfg(test)]
 mod tests {
     #[tokio::test]
-    async fn it_works() {
+    async fn old_url() {
         reqwest::get("https://raw.githubusercontent.com/pokemongo-dev-contrib/pokemongo-game-master/master/versions/latest/V2_GAME_MASTER.json")
             .await
             .unwrap()
             .json::<crate::Root>()
+            .await
+            .unwrap();
+    }
+
+    #[tokio::test]
+    async fn new_url() {
+        reqwest::get("https://raw.githubusercontent.com/PokeMiners/game_masters/master/latest/latest.json")
+            .await
+            .unwrap()
+            .json::<Vec<crate::TemplateWrapper>>()
             .await
             .unwrap();
     }
