@@ -21,7 +21,7 @@ pub struct TemplateWrapper {
 }
 
 #[derive(Debug, Deserialize)]
-// #[serde(deny_unknown_fields)]//minimalistic approach
+#[serde(deny_unknown_fields)]
 pub struct Template {
     #[serde(rename = "templateId")]
     pub template_id: Option<String>,
@@ -29,6 +29,7 @@ pub struct Template {
     pub combat_move: Option<CombatMove>,
     #[serde(rename = "playerLevel")]
     pub player_level: Option<PlayerLevel>,
+    #[serde(rename = "pokemonSettings")]
     pub pokemon: Option<PokemonSettings>,
     #[serde(rename = "combatStatStageSettings")]
     pub combat_stat_stage_settings: Option<CombatStatStageSettings>,
