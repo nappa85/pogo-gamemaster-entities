@@ -1,3 +1,4 @@
+use std::collections::HashMap;
 
 use serde::{Deserialize};
 
@@ -21,7 +22,7 @@ pub struct TemplateWrapper {
 }
 
 #[derive(Debug, Deserialize)]
-#[serde(deny_unknown_fields)]
+// #[serde(deny_unknown_fields)]
 pub struct Template {
     #[serde(rename = "templateId")]
     pub template_id: Option<String>,
@@ -33,7 +34,37 @@ pub struct Template {
     pub pokemon: Option<PokemonSettings>,
     #[serde(rename = "combatStatStageSettings")]
     pub combat_stat_stage_settings: Option<CombatStatStageSettings>,
+    // #[serde(alias = "addressablePokemonSettings")]
+    // #[serde(alias = "addressBookImportSettings")]
+    // #[serde(alias = "arTelemetrySettings")]
+    // #[serde(alias = "avatarGroupOrderSettings")]
+    // #[serde(alias = "avatarCustomization")]
+    // #[serde(alias = "levelUpRewards")]
+    // #[serde(alias = "levelUpRewardSettings")]
+    // #[serde(alias = "backgroundModeSettings")]
+    // #[serde(alias = "badge")]
+    // #[serde(alias = "badgeSettings")]
+    // #[serde(alias = "battleHubBadgeSettings")]
+    // #[serde(alias = "battleHubOrderSettings")]
+    // #[serde(alias = "battleSettings")]
+    // #[serde(alias = "battlePartySettings")]
+    // #[serde(alias = "battleVisualSettings")]
+    // #[serde(alias = "obBattleVisualSettings")]
+    // #[serde(alias = "belugaPokemonWhitelist")]
+    // #[serde(alias = "buddyActivitySettings")]
+    // #[serde(alias = "buddyActivityCategorySettings")]
+    // #[serde(alias = "buddyEmotionLevelSettings")]
+    // #[serde(alias = "buddyEncounterCameoSettings")]
+    // #[serde(alias = "buddyHungerSettings")]
+    // #[serde(alias = "buddyInteractionSettings")]
+    // #[serde(alias = "buddyInteractionSettings")]
+    // pub _ignored: Option<Ignored>,
 }
+
+// #[derive(Debug, Deserialize, Clone)]
+// pub struct Ignored {
+//     // minimalistic approach
+// }
 
 #[derive(Debug, Deserialize)]
 #[serde(deny_unknown_fields)]
@@ -88,9 +119,11 @@ pub struct PlayerLevel {
 #[serde(deny_unknown_fields)]
 pub struct PokemonSettings {
     #[serde(rename = "uniqueId")]
+    #[serde(alias = "pokemonId")]
     pub unique_id: String,
     #[serde(rename = "modelScale")]
     pub model_scale: Option<f32>,
+    #[serde(alias = "type")]
     pub type1: String,
     pub type2: Option<String>,
     pub camera: CameraSetting,
@@ -101,17 +134,21 @@ pub struct PokemonSettings {
     #[serde(rename = "cinematicMoves")]
     pub cinematic_moves: Option<Vec<String>>,
     #[serde(rename = "animTime")]
+    #[serde(alias = "animationTime")]
     pub anim_time: Option<Vec<f32>>,
+    #[serde(alias = "evolutionIds")]
     pub evolution: Option<Vec<String>>,
     #[serde(rename = "evolutionPips")]
     pub evolution_pips: Option<u8>,
     #[serde(rename = "pokemonClass")]
+    #[serde(alias = "rarity")]
     pub pokemon_class: Option<String>,
     #[serde(rename = "pokedexHeightM")]
     pub pokedex_height_m: Option<f32>,
     #[serde(rename = "pokedexWeightKg")]
     pub pokedex_weight_kg: Option<f32>,
     #[serde(rename = "parentId")]
+    #[serde(alias = "parentPokemonId")]
     pub parent_id: Option<String>,
     #[serde(rename = "heightStdDev")]
     pub height_std_dev: Option<f32>,
@@ -173,6 +210,10 @@ pub struct PokemonSettings {
     pub buddy_walked_mega_energy_award: Option<u8>,
     #[serde(rename = "disableTransferToPokemonHome")]
     pub disable_transfer_to_pokemon_home: Option<bool>,
+    #[serde(rename = "formChange")]
+    pub form_change: Option<Vec<FormChange>>,
+    #[serde(rename = "obPreviewPokemonSetting")]
+    pub ob_preview_pokemon_setting: Option<HashMap<String, f32>>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -208,10 +249,13 @@ pub struct CameraSetting {
     #[serde(rename = "diskRadiusM")]
     pub disk_radius_m: Option<f32>,
     #[serde(rename = "cylRadiusM")]
+    #[serde(alias = "cylinderRadiusM")]
     pub cyl_radius_m: Option<f32>,
     #[serde(rename = "cylHeightM")]
+    #[serde(alias = "cylinderHeightM")]
     pub cyl_height_m: Option<f32>,
     #[serde(rename = "cylGroundM")]
+    #[serde(alias = "cylinderGroundM")]
     pub cyl_ground_m: Option<f32>,
     #[serde(rename = "shoulderModeScale")]
     pub shoulder_mode_scale: Option<f32>,
@@ -225,11 +269,11 @@ pub struct Encounter {
     #[serde(rename = "baseFleeRate")]
     pub base_flee_rate: Option<f32>,
     #[serde(rename = "collisionRadiusM")]
-    pub collision_radius_m: f32,
+    pub collision_radius_m: Option<f32>,
     #[serde(rename = "collisionHeightM")]
-    pub collision_height_m: f32,
+    pub collision_height_m: Option<f32>,
     #[serde(rename = "collisionHeadRadiusM")]
-    pub collision_head_radius_m: f32,
+    pub collision_head_radius_m: Option<f32>,
     #[serde(rename = "movementType")]
     pub movement_type: Option<String>,
     #[serde(rename = "movementTimerS")]
@@ -258,6 +302,12 @@ pub struct Encounter {
     pub max_pokemon_action_frequency_s: f32,
     #[serde(rename = "bonusXlCandyCaptureReward")]
     pub bonus_xl_candy_capture_reward: Option<u8>,
+    #[serde(rename = "obShadowFormBaseCaptureRate")]
+    pub ob_shadow_form_base_capture_rate: Option<f32>,
+    #[serde(rename = "obShadowFormAttackProbability")]
+    pub ob_shadow_form_attack_probability: Option<f32>,
+    #[serde(rename = "obShadowFormDodgeProbability")]
+    pub ob_shadow_form_dodge_probability: Option<f32>,
 }
 
 #[derive(Debug, Deserialize, PartialEq, Copy, Clone)]
@@ -305,6 +355,8 @@ pub struct EvolutionBranch {
     pub quest_display: Option<Vec<QuestDisplay>>,
     #[serde(rename = "onlyUpsideDown")]
     pub only_upside_down: Option<bool>,
+    #[serde(rename = "obPurificationEvolutionCandyCost")]
+    pub ob_purification_evolution_candy_cost: Option<u16>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -347,6 +399,17 @@ pub struct CombatStatStageSettings {
     pub attack_buff_multiplier: Vec<f64>,
     #[serde(rename = "defenseBuffMultiplier")]
     pub defense_buff_multiplier: Vec<f64>,
+}
+
+#[derive(Debug, Deserialize, Clone)]
+#[serde(deny_unknown_fields)]
+pub struct FormChange {
+    #[serde(rename = "availableForm")]
+    pub available_form: Vec<String>,
+    #[serde(rename = "candyCost")]
+    pub candy_cost: u8,
+    #[serde(rename = "stardustCost")]
+    pub stardust_cost: u16,
 }
 
 #[cfg(test)]
