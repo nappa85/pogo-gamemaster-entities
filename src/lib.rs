@@ -10,7 +10,7 @@ pub struct Root {
     #[serde(rename = "batchId")]
     pub batch_id: String,
     #[serde(rename = "experimentId")]
-    pub experiment_id: Vec<u16>,
+    pub experiment_id: Vec<i32>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -113,6 +113,8 @@ pub struct PlayerLevel {
     pub max_encounter_player_level: u8,
     #[serde(rename = "maxQuestEncounterPlayerLevel")]
     pub max_quest_encounter_player_level: u8,
+    #[serde(rename = "obMaxMegaLevel")]
+    pub ob_max_mega_level: Option<u8>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -213,7 +215,11 @@ pub struct PokemonSettings {
     #[serde(rename = "formChange")]
     pub form_change: Option<Vec<FormChange>>,
     #[serde(rename = "obPreviewPokemonSetting")]
+    #[serde(alias = "obPokemonSetting")]
     pub ob_preview_pokemon_setting: Option<HashMap<String, f32>>,
+    #[serde(rename = "obCostumeEvolution")]
+    #[serde(alias = "pokemonCostume")]
+    pub ob_costume_evolution: Option<Vec<String>>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -227,6 +233,7 @@ pub struct TempEvoOverrides {
     #[serde(rename = "averageWeightKg")]
     pub average_weight_kg: f32,
     #[serde(rename = "typeOverride1")]
+    #[serde(alias = "typeOverride")]
     pub type_override1: String,
     #[serde(rename = "typeOverride2")]
     pub type_override2: Option<String>,
@@ -241,6 +248,8 @@ pub struct TempEvoOverrides {
     pub buddy_offset_female: Option<Vec<f32>>,
     #[serde(rename = "buddyPortraitOffset")]
     pub buddy_portrait_offset: Option<Vec<f32>>,
+    #[serde(rename = "raidBossDistanceOffset")]
+    pub raid_boss_distance_offset: Option<f32>,
 }
 
 #[derive(Debug, Deserialize)]
@@ -303,10 +312,13 @@ pub struct Encounter {
     #[serde(rename = "bonusXlCandyCaptureReward")]
     pub bonus_xl_candy_capture_reward: Option<u8>,
     #[serde(rename = "obShadowFormBaseCaptureRate")]
+    #[serde(alias = "shadowFormBaseCaptureRate")]
     pub ob_shadow_form_base_capture_rate: Option<f32>,
     #[serde(rename = "obShadowFormAttackProbability")]
+    #[serde(alias = "shadowFormAttackProbability")]
     pub ob_shadow_form_attack_probability: Option<f32>,
     #[serde(rename = "obShadowFormDodgeProbability")]
+    #[serde(alias = "shadowFormDodgeProbability")]
     pub ob_shadow_form_dodge_probability: Option<f32>,
 }
 
@@ -348,7 +360,7 @@ pub struct EvolutionBranch {
     #[serde(rename = "temporaryEvolution")]
     pub temporary_evolution: Option<String>,
     #[serde(rename = "temporaryEvolutionEnergyCost")]
-    pub temporary_evolution_energy_cost: Option<u8>,
+    pub temporary_evolution_energy_cost: Option<u16>,
     #[serde(rename = "temporaryEvolutionEnergyCostSubsequent")]
     pub temporary_evolution_energy_cost_subsequent: Option<u8>,
     #[serde(rename = "questDisplay")]
@@ -356,6 +368,7 @@ pub struct EvolutionBranch {
     #[serde(rename = "onlyUpsideDown")]
     pub only_upside_down: Option<bool>,
     #[serde(rename = "obPurificationEvolutionCandyCost")]
+    #[serde(alias = "purificationEvolutionCandyCost")]
     pub ob_purification_evolution_candy_cost: Option<u16>,
 }
 
