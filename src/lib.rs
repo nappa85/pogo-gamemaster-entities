@@ -226,15 +226,15 @@ pub struct PokemonSettings {
 #[serde(deny_unknown_fields)]
 pub struct TempEvoOverrides {
     #[serde(rename = "tempEvoId")]
-    pub temp_evo_id: String,
-    pub stats: Stats,
+    pub temp_evo_id: Option<String>,
+    pub stats: Option<Stats>,
     #[serde(rename = "averageHeightM")]
-    pub average_height_m: f32,
+    pub average_height_m: Option<f32>,
     #[serde(rename = "averageWeightKg")]
-    pub average_weight_kg: f32,
+    pub average_weight_kg: Option<f32>,
     #[serde(rename = "typeOverride1")]
     #[serde(alias = "typeOverride")]
-    pub type_override1: String,
+    pub type_override1: Option<String>,
     #[serde(rename = "typeOverride2")]
     pub type_override2: Option<String>,
     pub camera: Option<CameraSetting>,
