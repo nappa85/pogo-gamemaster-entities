@@ -2,6 +2,8 @@ use serde::{Deserialize, Serialize};
 
 use serde_json::Value;
 
+// generated with https://transform.tools/json-to-rust-serde
+
 #[derive(Debug, Deserialize)]
 #[serde(deny_unknown_fields)]
 pub struct Root {
@@ -537,7 +539,7 @@ pub struct CombatLeague {
     pub battle_party_combat_league_template_id: Option<String>,
     pub league_type: String,
     #[serde(default)]
-    pub ob_combat_refactor_toggle: Vec<Value>,
+    pub ob_combat_refactor_toggle: Vec<String>,
     pub allow_temp_evos: Option<bool>,
 }
 
@@ -785,6 +787,7 @@ pub struct DeepLinkingSettings {
     pub min_player_level_for_notification_link: i64,
     pub ob_external_action: Vec<String>,
     pub ob_notification_action: Vec<String>,
+    pub ob_deep_linking_setting_bool1: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -818,7 +821,6 @@ pub struct EncounterSettings {
     pub ar_plus_mode_enabled: bool,
     pub ar_close_proximity_threshold: f64,
     pub ar_low_awareness_threshold: f64,
-    pub ob_background_event_image_key: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1240,9 +1242,6 @@ pub struct LuckyPokemonSettings {
 #[serde(rename_all = "camelCase")]
 pub struct MapDisplaySettings {
     pub show_enhanced_sky: bool,
-    pub ob_map_display_bool1: bool,
-    pub ob_event_skybox: String,
-    pub ob_map_display_string3: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1691,7 +1690,7 @@ pub struct StickerMetadata {
     pub pokemon_id: Option<String>,
     pub ob_sticker_category: Vec<String>,
     pub ob_sticker_date: i64,
-    pub ob_sticker_metadata_number1: Option<i64>,
+    pub ob_sticker_sort_order: Option<i64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
