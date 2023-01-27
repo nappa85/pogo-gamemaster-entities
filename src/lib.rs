@@ -1,7 +1,5 @@
 use serde::{Deserialize, Serialize};
 
-use serde_json::Value;
-
 // generated with https://transform.tools/json-to-rust-serde
 
 #[derive(Debug, Deserialize)]
@@ -868,13 +866,38 @@ pub struct ObEvolvePreviewSettings {
 #[serde(rename_all = "camelCase")]
 pub struct PokemonExtendedSettings {
     pub unique_id: String,
-    pub form: Option<String>,
     pub ob_pokemon_size_settings: ObPokemonSizeSettings,
+    pub form: Option<String>,
+    #[serde(default)]
+    pub ob_extended_override_settings: Vec<ObExtendedOverrideSetting>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ObPokemonSizeSettings {
+    pub ob_pokemon_size_multiplier_scale1: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale2: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale3: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale4: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale5: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale6: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale7: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale8: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale9: Option<f64>,
+    pub ob_pokemon_size_multiplier_scale10: Option<f64>,
+    pub ob_pokemon_size_settings_bool2: Option<bool>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ObExtendedOverrideSetting {
+    pub temp_evolution_id: String,
+    pub ob_pokemon_size_settings: ObPokemonSizeSettings2,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ObPokemonSizeSettings2 {
     pub ob_pokemon_size_multiplier_scale1: f64,
     pub ob_pokemon_size_multiplier_scale2: f64,
     pub ob_pokemon_size_multiplier_scale3: f64,
@@ -1077,7 +1100,7 @@ pub struct InventorySettings {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ItemSettings {
-    pub item_id: Value,
+    pub item_id: String,
     pub item_type: String,
     pub category: String,
     pub drop_trainer_level: Option<i64>,
@@ -1939,6 +1962,7 @@ pub struct EvolutionBranch {
     pub temporary_evolution: Option<String>,
     pub temporary_evolution_energy_cost: Option<i64>,
     pub temporary_evolution_energy_cost_subsequent: Option<i64>,
+    pub ob_evolution_branch_bool2: Option<bool>,
     pub priority: Option<i64>,
     pub must_be_buddy: Option<bool>,
 }
