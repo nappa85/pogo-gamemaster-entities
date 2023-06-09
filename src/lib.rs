@@ -1671,8 +1671,8 @@ pub struct SponsoredGeofenceGiftSettings {
     pub fullscreen_disable_exit_button_time_ms: i64,
     pub balloon_gift_settings: BalloonGiftSettings,
     pub ob_sponsored_geofence_gift_settings_bool1: bool,
-    pub ob_sponsored_geofence_gift_settings: ObSponsoredGeofenceGiftSettings,
-    pub ob_sponsored_geofence_gift_details: ObSponsoredGeofenceGiftDetails,
+    pub ob_sponsored_geofence_gift_settings: Option<ObSponsoredGeofenceGiftSettings>,
+    pub ob_sponsored_geofence_gift_details: Option<ObSponsoredGeofenceGiftDetails>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
