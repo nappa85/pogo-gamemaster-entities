@@ -3,7 +3,7 @@ use serde::{Deserialize, Serialize};
 // generated with https://transform.tools/json-to-rust-serde
 
 #[derive(Debug, Deserialize)]
-#[serde(deny_unknown_fields)]
+//#[serde(deny_unknown_fields)]
 pub struct Root {
     pub result: String,
     pub template: Vec<TemplateWrapper>,
@@ -1326,7 +1326,7 @@ pub struct MegaEvoSettings {
     pub ob_mega_level_settings_shared_bool1: bool,
     pub ob_mega_level_settings_shared_bool2: bool,
     pub ob_max_mega_levels: i64,
-    pub ob_mega_evo_settings_number2: i64,
+    pub ob_mega_evo_settings_number2: Option<i64>,
     pub ob_mega_level_enabled: bool,
 }
 
