@@ -26,9 +26,10 @@ pub struct Data {
     pub template_id: String,
     pub addressable_pokemon_settings: Option<AddressablePokemonSettings>,
     pub address_book_import_settings: Option<AddressBookImportSettings>,
-    pub ob_advanced_settings: Option<ObAdvancedSettings>,
+    pub advanced_settings: Option<AdvancedSettings>,
+    pub evolution_quest_template: Option<EvolutionQuestTemplate>,
     pub ar_telemetry_settings: Option<ArTelemetrySettings>,
-    pub ob_asset_refresh_settings: Option<ObAssetRefreshSettings>,
+    pub asset_refresh_proto: Option<AssetRefreshProto>,
     pub avatar_group_order_settings: Option<AvatarGroupOrderSettings>,
     pub avatar_customization: Option<AvatarCustomization>,
     pub level_up_reward_settings: Option<LevelUpRewardSettings>,
@@ -38,8 +39,9 @@ pub struct Data {
     pub battle_hub_order_settings: Option<BattleHubOrderSettings>,
     pub battle_party_settings: Option<BattlePartySettings>,
     pub battle_settings: Option<BattleSettings>,
-    pub ob_battle_visual_settings: Option<ObBattleVisualSettings>,
+    pub battle_visual_settings: Option<BattleVisualSettings>,
     pub beluga_pokemon_whitelist: Option<BelugaPokemonWhitelist>,
+    pub boot_settings: Option<BootSettings>,
     pub buddy_activity_settings: Option<BuddyActivitySettings>,
     pub buddy_activity_category_settings: Option<BuddyActivityCategorySettings>,
     pub buddy_emotion_level_settings: Option<BuddyEmotionLevelSettings>,
@@ -49,9 +51,11 @@ pub struct Data {
     pub buddy_level_settings: Option<BuddyLevelSettings>,
     pub buddy_swap_settings: Option<BuddySwapSettings>,
     pub buddy_walk_settings: Option<BuddyWalkSettings>,
+    pub buff_settings: Option<BuffSettings>,
+    pub bulk_healing_settings: Option<BulkHealingSettings>,
     pub butterfly_collector_settings: Option<ButterflyCollectorSettings>,
-    pub ob_campfire_settings: Option<ObCampfireSettings>,
-    pub evolution_quest_template: Option<EvolutionQuestTemplate>,
+    pub campfire_settings: Option<CampfireSettings>,
+    pub catch_radius_multiplier_settings: Option<CatchRadiusMultiplierSettings>,
     pub invasion_npc_display_settings: Option<InvasionNpcDisplaySettings>,
     pub combat_competitive_season_settings: Option<CombatCompetitiveSeasonSettings>,
     pub combat_league: Option<CombatLeague>,
@@ -61,113 +65,137 @@ pub struct Data {
     pub combat_settings: Option<CombatSettings>,
     pub combat_stat_stage_settings: Option<CombatStatStageSettings>,
     pub combat_move: Option<CombatMove>,
+    pub contest_settings: Option<ContestSettings>,
+    pub conversation_settings: Option<ConversationSettings>,
     pub cross_game_social_settings: Option<CrossGameSocialSettings>,
-    pub ob_daily_adventure_incense_settings: Option<ObDailyAdventureIncenseSettings>,
+    pub daily_adventure_incense_settings: Option<DailyAdventureIncenseSettings>,
     pub deep_linking_settings: Option<DeepLinkingSettings>,
-    pub ob_egg_hatch_improvement_settings: Option<ObEggHatchImprovementSettings>,
+    pub egg_hatch_improvements_settings: Option<EggHatchImprovementsSettings>,
     pub egg_transparency_settings: Option<EggTransparencySettings>,
     pub friend_profile_settings: Option<FriendProfileSettings>,
     pub encounter_settings: Option<EncounterSettings>,
     pub pokemon_home_energy_costs: Option<PokemonHomeEnergyCosts>,
-    pub ob_evolution_chain_display_settings: Option<ObEvolutionChainDisplaySettings>,
-    pub ob_evolve_preview_settings: Option<ObEvolvePreviewSettings>,
+    pub evolution_chain_display_settings: Option<EvolutionChainDisplaySettings>,
+    pub evolve_preview_settings: Option<EvolvePreviewSettings>,
     pub pokemon_extended_settings: Option<PokemonExtendedSettings>,
+    pub extended_primal_settings: Option<ExtendedPrimalSettings>,
     pub external_addressable_assets_settings: Option<ExternalAddressableAssetsSettings>,
-    pub ex_raid_settings: Option<ExRaidSettings>,
-    pub ob_feature_unlock_settings: Option<ObFeatureUnlockSettings>,
-    pub ob_forms_refactor_settings: Option<ObFormsRefactorSettings>,
+    pub feature_unlock_level_settings: Option<FeatureUnlockLevelSettings>,
+    pub forms_refactor_settings: Option<FormsRefactorSettings>,
     pub form_settings: Option<FormSettings>,
-    pub ob_fort_power_up_settings: Option<ObFortPowerUpSettings>,
+    pub fort_power_up_level_settings: Option<FortPowerUpLevelSettings>,
     pub friendship_milestone_settings: Option<FriendshipMilestoneSettings>,
     pub geotargeted_quest_settings: Option<GeotargetedQuestSettings>,
-    pub ob_gifting_settings: Option<ObGiftingSettings>,
+    pub gifting_settings: Option<GiftingSettings>,
     pub gui_search_settings: Option<GuiSearchSettings>,
     pub gym_badge_settings: Option<GymBadgeSettings>,
     pub gym_level: Option<GymLevel>,
-    pub ob_game_master_language_settings: Option<ObGameMasterLanguageSettings>,
+    pub haptics_settings: Option<HapticsSettings>,
+    pub language_settings: Option<LanguageSettings>,
     pub iap_category_display: Option<IapCategoryDisplay>,
     pub iap_settings: Option<IapSettings>,
     pub incident_priority_settings: Option<IncidentPrioritySettings>,
-    pub ob_invasion_character_settings: Option<ObInvasionCharacterSettings>,
+    pub incident_visibility_settings: Option<IncidentVisibilitySettings>,
+    pub incubator_flow_settings: Option<IncubatorFlowSettings>,
     pub pokestop_invasion_availability_settings: Option<PokestopInvasionAvailabilitySettings>,
     pub inventory_settings: Option<InventorySettings>,
     pub item_settings: Option<ItemSettings>,
     pub item_inventory_update_settings: Option<ItemInventoryUpdateSettings>,
-    pub ob_language_selector_settings: Option<ObLanguageSelectorSettings>,
+    pub language_selector_settings: Option<LanguageSelectorSettings>,
+    pub location_card_settings: Option<LocationCardSettings>,
     pub loading_screen_settings: Option<LoadingScreenSettings>,
+    pub location_card_feature_settings: Option<LocationCardFeatureSettings>,
     pub limited_purchase_sku_settings: Option<LimitedPurchaseSkuSettings>,
     pub lucky_pokemon_settings: Option<LuckyPokemonSettings>,
+    pub ob_main_menu_camera_button_settings: Option<ObMainMenuCameraButtonSettings>,
     pub map_display_settings: Option<MapDisplaySettings>,
-    pub ob_interaction_range_settings: Option<ObInteractionRangeSettings>,
-    pub ob_mega_level_settings: Option<ObMegaLevelSettings>,
+    pub map_objects_interaction_range_settings: Option<MapObjectsInteractionRangeSettings>,
+    pub mega_evo_level_settings: Option<MegaEvoLevelSettings>,
     pub mega_evo_settings: Option<MegaEvoSettings>,
     pub monodepth_settings: Option<MonodepthSettings>,
+    pub nearby_pokemon_settings: Option<NearbyPokemonSettings>,
+    pub neutral_avatar_settings: Option<NeutralAvatarSettings>,
     pub news_feed_client_settings: Option<NewsFeedClientSettings>,
+    pub non_combat_move_settings: Option<NonCombatMoveSettings>,
     pub onboarding_settings: Option<OnboardingSettings>,
     #[serde(rename = "onboardingV2Settings")]
     pub onboarding_v2settings: Option<OnboardingV2Settings>,
+    pub party_dark_launch_settings: Option<PartyDarkLaunchSettings>,
+    pub party_play_general_settings: Option<PartyPlayGeneralSettings>,
     pub party_recommendation_settings: Option<PartyRecommendationSettings>,
-    pub ob_photo_settings: Option<ObPhotoSettings>,
+    pub photo_settings: Option<PhotoSettings>,
     pub platypus_rollout_settings: Option<PlatypusRolloutSettings>,
     pub player_level: Option<PlayerLevel>,
     pub pokecoin_purchase_display_gmt: Option<PokecoinPurchaseDisplayGmt>,
-    pub ob_pokedex_categories_settings: Option<ObPokedexCategoriesSettings>,
-    pub pokedex_size_stats_settings: Option<PokedexSizeStatsSettings>,
+    pub pokedex_categories_settings: Option<PokedexCategoriesSettings>,
+    pub pokedex_size_stats_system_settings: Option<PokedexSizeStatsSystemSettings>,
+    pub pokemon_fx_settings: Option<PokemonFxSettings>,
     pub pokemon_home_settings: Option<PokemonHomeSettings>,
     pub pokemon_scale_settings: Option<PokemonScaleSettings>,
     pub pokemon_tag_settings: Option<PokemonTagSettings>,
     pub type_effective: Option<TypeEffective>,
     pub pokemon_upgrades: Option<PokemonUpgrades>,
-    pub ob_popup_control_settings: Option<ObPopupControlSettings>,
-    pub ob_post_card_collection_settings: Option<ObPostCardCollectionSettings>,
-    pub ob_power_up_poi_settings: Option<ObPowerUpPoiSettings>,
-    pub ob_push_gateway_settings: Option<ObPushGatewaySettings>,
+    pub popup_control_settings: Option<PopupControlSettings>,
+    pub postcard_collection_settings: Option<PostcardCollectionSettings>,
+    pub power_up_pokestops_settings: Option<PowerUpPokestopsSettings>,
+    pub primal_evo_settings: Option<PrimalEvoSettings>,
+    pub vps_event_settings: Option<VpsEventSettings>,
     pub quest_evolution_settings: Option<QuestEvolutionSettings>,
     pub quest_settings: Option<QuestSettings>,
     pub raid_settings: Option<RaidSettings>,
+    pub raid_lobby_counter_settings: Option<RaidLobbyCounterSettings>,
     pub recomended_search_settings: Option<RecomendedSearchSettings>,
     pub referral_settings: Option<ReferralSettings>,
+    pub squash_settings: Option<SquashSettings>,
+    pub routes_nearby_notif_settings: Option<RoutesNearbyNotifSettings>,
+    pub routes_party_play_interop_settings: Option<RoutesPartyPlayInteropSettings>,
+    pub route_badge_settings: Option<RouteBadgeSettings>,
     pub route_creation_settings: Option<RouteCreationSettings>,
     pub route_discovery_settings: Option<RouteDiscoverySettings>,
+    pub route_npc_gift_settings: Option<RouteNpcGiftSettings>,
     pub route_play_settings: Option<RoutePlaySettings>,
-    pub ob_route_stamp_category_settings: Option<ObRouteStampCategorySettings>,
-    pub ob_shared_move_settings: Option<ObSharedMoveSettings>,
+    pub route_stamp_category_settings: Option<RouteStampCategorySettings>,
+    pub shared_move_settings: Option<SharedMoveSettings>,
+    pub shared_non_combat_move_settings: Option<SharedNonCombatMoveSettings>,
     pub smeargle_moves_settings: Option<SmeargleMovesSettings>,
     pub gender_settings: Option<GenderSettings>,
     pub sponsored_geofence_gift_settings: Option<SponsoredGeofenceGiftSettings>,
     pub sticker_metadata: Option<StickerMetadata>,
     pub iap_item_display: Option<IapItemDisplay>,
-    pub ob_in_app_survey_settings: Option<ObInAppSurveySettings>,
+    pub style_shop_settings: Option<StyleShopSettings>,
+    pub in_app_survey_settings: Option<InAppSurveySettings>,
+    pub tappable_settings: Option<TappableSettings>,
     pub temporary_evolution_settings: Option<TemporaryEvolutionSettings>,
-    pub ob_ticket_gifting_settings: Option<ObTicketGiftingSettings>,
+    pub ticket_gifting_settings: Option<TicketGiftingSettings>,
+    pub today_view_settings: Option<TodayViewSettings>,
     pub combat_npc_trainer: Option<CombatNpcTrainer>,
     pub combat_npc_personality: Option<CombatNpcPersonality>,
     pub pokemon_family: Option<PokemonFamily>,
     pub pokemon_settings: Option<PokemonSettings>,
     pub move_settings: Option<MoveSettings>,
     pub pokemon_home_form_reversions: Option<PokemonHomeFormReversions>,
-    pub ob_verbose_combat_setting: Option<ObVerboseCombatSetting>,
-    pub ob_verbose_raid_settings: Option<ObVerboseRaidSettings>,
+    pub verbose_log_combat_settings: Option<VerboseLogCombatSettings>,
+    pub verbose_log_raid_settings: Option<VerboseLogRaidSettings>,
     pub vs_seeker_client_settings: Option<VsSeekerClientSettings>,
     pub vs_seeker_loot: Option<VsSeekerLoot>,
     pub vs_seeker_pokemon_rewards: Option<VsSeekerPokemonRewards>,
-    pub ob_vs_seeker_schedule_settings: Option<ObVsSeekerScheduleSettings>,
+    pub vs_seeker_schedule_settings: Option<VsSeekerScheduleSettings>,
     pub weather_affinities: Option<WeatherAffinities>,
     pub weather_bonus_settings: Option<WeatherBonusSettings>,
     #[serde(rename = "adventureSyncV2Gmt")]
     pub adventure_sync_v2gmt: Option<AdventureSyncV2Gmt>,
     pub camera: Option<Camera3>,
-    pub ob_impression_tracking_settings: Option<ObImpressionTrackingSettings>,
+    pub impression_tracking_settings: Option<ImpressionTrackingSettings>,
     pub move_sequence_settings: Option<MoveSequenceSettings>,
-    pub ob_sticker_category_settings: Option<ObStickerCategorySettings>,
-    pub ob_tutorial_settings: Option<ObTutorialSettings>,
-    pub ob_username_suggestion_settings: Option<ObUsernameSuggestionSettings>,
+    pub sticker_category_settings: Option<StickerCategorySettings>,
+    pub tutorial_settings: Option<TutorialSettings>,
+    pub username_suggestion_settings: Option<UsernameSuggestionSettings>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct AddressablePokemonSettings {
-    pub ob_addressable_pokemon_id: Vec<String>,
+    pub addressable_pokemon_ids: Vec<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -181,8 +209,62 @@ pub struct AddressBookImportSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObAdvancedSettings {
-    pub ob_download_all_assets_enabled: bool,
+pub struct AdvancedSettings {
+    pub download_all_assets_enabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EvolutionQuestTemplate {
+    pub quest_template_id: String,
+    pub quest_type: String,
+    pub goals: Vec<Goal>,
+    pub context: String,
+    pub display: Display,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Goal {
+    pub target: i64,
+    #[serde(default)]
+    pub condition: Vec<Condition>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Condition {
+    #[serde(rename = "type")]
+    pub type_field: String,
+    pub with_pokemon_type: Option<WithPokemonType>,
+    pub with_throw_type: Option<WithThrowType>,
+    pub with_opponent_pokemon_battle_status: Option<WithOpponentPokemonBattleStatus>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WithPokemonType {
+    pub pokemon_type: Vec<String>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WithThrowType {
+    pub throw_type: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct WithOpponentPokemonBattleStatus {
+    pub require_defeat: bool,
+    pub opponent_pokemon_type: Vec<String>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Display {
+    pub description: String,
+    pub title: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -193,12 +275,13 @@ pub struct ArTelemetrySettings {
     pub measure_framerate: bool,
     pub framerate_sampling_interval_ms: i64,
     pub percentage_sessions_to_sample: f64,
+    pub enable_ardk_telemetry: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObAssetRefreshSettings {
-    pub ob_check_for_new_assets_time_seconds: i64,
+pub struct AssetRefreshProto {
+    pub string_refresh_seconds: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -212,7 +295,7 @@ pub struct AvatarGroupOrderSettings {
 pub struct Group {
     pub name: String,
     pub order: i64,
-    pub ob_show_new_tag: Option<bool>,
+    pub new_tag_enabled: Option<bool>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -227,9 +310,12 @@ pub struct AvatarCustomization {
     pub unlock_type: String,
     pub iap_sku: Option<String>,
     pub icon_name: Option<String>,
+    #[serde(default)]
+    pub set_names: Vec<String>,
     pub unlock_badge_type: Option<String>,
     pub unlock_badge_level: Option<i64>,
     pub unlock_player_level: Option<i64>,
+    pub set_prime_item: Option<bool>,
     pub avatar_type: Option<String>,
 }
 
@@ -256,8 +342,7 @@ pub struct BackgroundModeSettings {
     pub weekly_fitness_goal_level3distance_km: f64,
     #[serde(rename = "weeklyFitnessGoalLevel4DistanceKm")]
     pub weekly_fitness_goal_level4distance_km: f64,
-    #[serde(rename = "obWeeklyFitnessGoalLevel5DistanceKm")]
-    pub ob_weekly_fitness_goal_level5distance_km: f64,
+    pub weekly_fitness_goal_reminder_km: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -267,6 +352,14 @@ pub struct BadgeSettings {
     pub badge_rank: i64,
     pub targets: Vec<i64>,
     pub event_badge: Option<bool>,
+    pub capture_reward: Option<Vec<CaptureReward>>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CaptureReward {
+    #[serde(default)]
+    pub reward_types: Vec<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -298,6 +391,7 @@ pub struct SectionGroup {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct BattlePartySettings {
+    pub enable_battle_party_saving: bool,
     pub max_battle_parties: i64,
     pub overall_parties_cap: i64,
 }
@@ -326,10 +420,10 @@ pub struct BattleSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObBattleVisualSettings {
-    pub ob_battle_visual_stadium_enabled: bool,
-    pub ob_stadium_crowd_asset: String,
-    pub ob_stadium_banner_asset: String,
+pub struct BattleVisualSettings {
+    pub enhancements_enabled: bool,
+    pub crowd_texture_asset: String,
+    pub banner_texture_asset: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -342,13 +436,21 @@ pub struct BelugaPokemonWhitelist {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct BootSettings {
+    #[serde(rename = "bootSequenceV2Enabled")]
+    pub boot_sequence_v2enabled: bool,
+    pub boot_lazy_inject_enabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct BuddyActivitySettings {
     pub activity: String,
     pub activity_category: String,
     pub max_times_per_day: i64,
     pub num_points_per_action: i64,
     pub num_emotion_points_per_action: i64,
-    pub emotion_cooldown_duration_ms: Option<i64>,
+    pub emotion_cooldown_duration_ms: Option<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -404,13 +506,27 @@ pub struct BuddyLevelSettings {
 #[serde(rename_all = "camelCase")]
 pub struct BuddySwapSettings {
     pub max_swaps_per_day: i64,
-    pub ob_buddy_swap_settings_bool1: bool,
+    pub enable_swap_free_evolution: bool,
+    pub ob_enable_quick_swap_button: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct BuddyWalkSettings {
     pub km_required_per_affection_point: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BuffSettings {
+    pub friendship_lucky_egg_enabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BulkHealingSettings {
+    pub enabled: bool,
+    pub max_pokemons_per_heal: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -424,56 +540,20 @@ pub struct ButterflyCollectorSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObCampfireSettings {
-    pub ob_catch_card_enabled: bool,
-    pub ob_catch_card_share_enabled: bool,
-    pub ob_catch_card_time_to_share_to_campfire_s: i64,
+pub struct CampfireSettings {
+    pub campfire_enabled: bool,
+    pub map_buttons_enabled: bool,
+    pub catch_card_enabled: bool,
+    pub ar_catch_card_enabled: bool,
+    pub catch_card_available_seconds: i64,
+    pub catch_card_share_campfire_enabled: bool,
+    pub ar_catch_card_share_campfire_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct EvolutionQuestTemplate {
-    pub quest_template_id: String,
-    pub quest_type: String,
-    pub goals: Vec<Goal>,
-    pub context: String,
-    pub display: Display,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Goal {
-    pub target: i64,
-    #[serde(default)]
-    pub condition: Vec<Condition>,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Condition {
-    #[serde(rename = "type")]
-    pub type_field: String,
-    pub with_pokemon_type: Option<WithPokemonType>,
-    pub with_throw_type: Option<WithThrowType>,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct WithPokemonType {
-    pub pokemon_type: Vec<String>,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct WithThrowType {
-    pub throw_type: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct Display {
-    pub description: String,
-    pub title: String,
+pub struct CatchRadiusMultiplierSettings {
+    pub catch_radius_multiplier_settings_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -485,11 +565,12 @@ pub struct InvasionNpcDisplaySettings {
     pub trainer_quote: String,
     pub icon_url: String,
     pub model_name: String,
-    pub ob_party_selection_music: Option<String>,
+    pub custom_incident_music: Option<String>,
     pub tutorial_on_loss_string: Option<String>,
     pub is_male: Option<bool>,
+    pub tips_type: Option<String>,
     pub backdrop_image_bundle: Option<String>,
-    pub ob_combat_music: Option<String>,
+    pub custom_combat_music: Option<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -536,9 +617,9 @@ pub struct CombatLeague {
     pub badge_type: String,
     pub battle_party_combat_league_template_id: Option<String>,
     pub league_type: String,
-    #[serde(default)]
-    pub ob_combat_refactor_toggle: Vec<String>,
     pub allow_temp_evos: Option<bool>,
+    #[serde(default)]
+    pub combat_experiment: Vec<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -580,7 +661,7 @@ pub struct WithPokemonCpLimit2 {
 #[serde(rename_all = "camelCase")]
 pub struct PokemonCaughtTimestamp {
     pub after_timestamp: String,
-    pub before_timestamp: Option<String>,
+    pub before_timestamp: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -693,26 +774,25 @@ pub struct CombatSettings {
     pub shadow_pokemon_attack_bonus_multiplier: f64,
     pub shadow_pokemon_defense_bonus_multiplier: f64,
     pub purified_pokemon_attack_multiplier_vs_shadow: f64,
-    pub ob_combat_settings_bool1: bool,
+    pub combat_experiment: Vec<String>,
+    pub show_quick_swap_buttons_during_countdown: bool,
     pub ob_combat_settings_not_pushed_bool2: bool,
-    pub ob_combat_settings1: ObCombatSettings1,
-    pub ob_combat_settings2: ObCombatSettings2,
-    pub ob_combat_settings_number1: i64,
+    pub clock_sync_settings: ClockSyncSettings,
+    pub combat_feature_flags: CombatFeatureFlags,
+    pub flyin_duration_turns: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObCombatSettings1 {
-    #[serde(rename = "obCombatSettings1Number1")]
-    pub ob_combat_settings1number1: i64,
+pub struct ClockSyncSettings {
+    pub sync_attempt_count: i64,
     pub enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObCombatSettings2 {
-    #[serde(rename = "obCombatSettings2Bool1")]
-    pub ob_combat_settings2bool1: bool,
+pub struct CombatFeatureFlags {
+    pub real_device_time_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -733,19 +813,95 @@ pub struct CombatMove {
     pub power: Option<f64>,
     pub vfx_name: String,
     pub energy_delta: Option<i64>,
-    pub buffs: Option<Buffs>,
     pub duration_turns: Option<i64>,
+    pub buffs: Option<Buffs>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Buffs {
-    pub target_attack_stat_stage_change: Option<i64>,
-    pub buff_activation_chance: f64,
-    pub attacker_attack_stat_stage_change: Option<i64>,
     pub attacker_defense_stat_stage_change: Option<i64>,
+    pub buff_activation_chance: f64,
     pub target_defense_stat_stage_change: Option<i64>,
+    pub target_attack_stat_stage_change: Option<i64>,
+    pub attacker_attack_stat_stage_change: Option<i64>,
 }
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContestSettings {
+    pub is_feature_enabled: bool,
+    pub player_contest_max_entries: i64,
+    pub contest_limits: Vec<ContestLimit>,
+    pub default_contest_max_entries: i64,
+    pub min_cooldown_before_season_end_ms: String,
+    pub contest_warmup_and_cooldown_durations_ms: Vec<ContestWarmupAndCooldownDurationsM>,
+    pub default_cycle_warmup_duration_ms: String,
+    pub default_cycle_cooldown_duration_ms: String,
+    pub max_catch_prompt_range: f64,
+    pub catch_prompt_timeout_ms: f64,
+    pub contest_score_coefficient: Vec<ContestScoreCoefficient>,
+    pub contest_length_thresholds: Vec<ContestLengthThreshold>,
+    pub is_friends_display_enabled: bool,
+    #[serde(rename = "isV2FeatureEnabled")]
+    pub is_v2feature_enabled: bool,
+    pub is_anticheat_removal_enabled: bool,
+    pub is_normalized_score_to_species: bool,
+    #[serde(rename = "isV2FocusesEnabled")]
+    pub is_v2focuses_enabled: bool,
+    pub is_contest_in_nearby_menu: bool,
+    pub is_pokemon_scalar_enabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContestLimit {
+    pub contest_metric: ContestMetric,
+    pub contest_occurrence: String,
+    pub per_contest_max_entries: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContestMetric {
+    pub pokemon_metric: String,
+    pub ranking_standard: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContestWarmupAndCooldownDurationsM {
+    pub contest_occurrence: String,
+    pub cycle_warmup_duration_ms: String,
+    pub cycle_cooldown_duration_ms: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContestScoreCoefficient {
+    pub pokemon_size: PokemonSize,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PokemonSize {
+    pub height_coefficient: f64,
+    pub weight_coefficient: f64,
+    pub iv_coefficient: f64,
+    pub xxl_adjustment_factor: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ContestLengthThreshold {
+    pub length: String,
+    pub min_duration_ms: String,
+    pub max_duration_ms: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ConversationSettings {}
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
@@ -756,18 +912,18 @@ pub struct CrossGameSocialSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObDailyAdventureIncenseSettings {
+pub struct DailyAdventureIncenseSettings {
     pub enabled: bool,
-    pub ob_pokeball_threshold_to_reward_loot: i64,
-    pub ob_rewards: ObRewards,
-    pub ob_daily_adventure_incense_reset_time: String,
-    pub ob_daily_adventure_incense_settings_bool1: bool,
-    pub ob_pace_multiplier: i64,
+    pub pokeball_grant_threshold: i64,
+    pub pokeball_grant: PokeballGrant,
+    pub local_delivery_time: String,
+    pub enable_push_notification: bool,
+    pub push_notification_hour_of_day: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObRewards {
+pub struct PokeballGrant {
     pub loot_item: Vec<LootItem>,
 }
 
@@ -783,17 +939,17 @@ pub struct LootItem {
 pub struct DeepLinkingSettings {
     pub min_player_level_for_external_link: i64,
     pub min_player_level_for_notification_link: i64,
-    pub ob_external_action: Vec<String>,
-    pub ob_notification_action: Vec<String>,
-    pub ob_deep_linking_setting_bool1: bool,
+    pub actions_that_ignore_min_level: Vec<String>,
+    pub actions_that_execute_before_map_loads: Vec<String>,
+    pub ios_action_button_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObEggHatchImprovementSettings {
+pub struct EggHatchImprovementsSettings {
     pub feature_enabled: bool,
-    pub ob_egg_hatch_animation_delay_ms: i64,
-    pub ob_egg_hatch_animation_interuption_delay_ms: i64,
+    pub boot_delay_ms: i64,
+    pub raid_invite_hard_cap_ms: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -805,7 +961,8 @@ pub struct EggTransparencySettings {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct FriendProfileSettings {
-    pub enable_swiping: bool,
+    pub enable_trainer_code_tab_v2: Option<bool>,
+    pub enable_swiping: Option<bool>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -835,75 +992,82 @@ pub struct PokemonHomeEnergyCosts {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObEvolutionChainDisplaySettings {
+pub struct EvolutionChainDisplaySettings {
     pub pokemon: String,
-    pub ob_chain: Vec<ObChain>,
+    #[serde(default)]
+    pub evolution_chains: Vec<EvolutionChain>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObChain {
-    pub ob_evolution_chain_entry: Vec<ObEvolutionChainEntry>,
-    pub ob_pokedex_header: Option<String>,
+pub struct EvolutionChain {
+    pub evolution_infos: Vec<EvolutionInfo>,
+    pub header_message: Option<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObEvolutionChainEntry {
+pub struct EvolutionInfo {
     pub pokemon: String,
-    pub gender: Option<String>,
     pub form: Option<String>,
+    pub gender: Option<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObEvolvePreviewSettings {
-    pub ob_enable_evolution_preview: bool,
-    pub ob_enable_mega_evolution_preview: bool,
+pub struct EvolvePreviewSettings {
+    pub enable_normal_evolve_preview: bool,
+    pub enable_mega_evolve_preview: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct PokemonExtendedSettings {
     pub unique_id: String,
-    pub ob_pokemon_size_settings: ObPokemonSizeSettings,
+    pub size_settings: SizeSettings,
     pub form: Option<String>,
     #[serde(default)]
-    pub ob_extended_override_settings: Vec<ObExtendedOverrideSetting>,
+    pub temp_evo_overrides: Vec<TempEvoOverride>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPokemonSizeSettings {
-    pub ob_pokemon_size_multiplier_scale1: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale2: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale3: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale4: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale5: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale6: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale7: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale8: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale9: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale10: Option<f64>,
-    pub ob_pokemon_size_settings_bool2: Option<bool>,
+pub struct SizeSettings {
+    pub xxs_lower_bound: f64,
+    pub xs_lower_bound: f64,
+    pub m_lower_bound: f64,
+    pub m_upper_bound: f64,
+    pub xl_upper_bound: f64,
+    pub xxl_upper_bound: f64,
+    pub disable_pokedex_record_display_for_forms: Option<bool>,
+    pub xxs_scale_multiplier: Option<f64>,
+    pub xs_scale_multiplier: Option<f64>,
+    pub xl_scale_multiplier: Option<f64>,
+    pub xxl_scale_multiplier: Option<f64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObExtendedOverrideSetting {
-    pub temp_evolution_id: String,
-    pub ob_pokemon_size_settings: ObPokemonSizeSettings2,
+pub struct TempEvoOverride {
+    pub temp_evo_id: String,
+    pub size_settings: SizeSettings2,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPokemonSizeSettings2 {
-    pub ob_pokemon_size_multiplier_scale1: f64,
-    pub ob_pokemon_size_multiplier_scale2: f64,
-    pub ob_pokemon_size_multiplier_scale3: f64,
-    pub ob_pokemon_size_multiplier_scale4: f64,
-    pub ob_pokemon_size_multiplier_scale5: f64,
-    pub ob_pokemon_size_multiplier_scale6: f64,
+pub struct SizeSettings2 {
+    pub xxs_lower_bound: f64,
+    pub xs_lower_bound: f64,
+    pub m_lower_bound: f64,
+    pub m_upper_bound: f64,
+    pub xl_upper_bound: f64,
+    pub xxl_upper_bound: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ExtendedPrimalSettings {
+    pub extended_primals_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -912,25 +1076,19 @@ pub struct ExternalAddressableAssetsSettings {}
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ExRaidSettings {
-    pub minimum_ex_raid_share_level: String,
-    pub undefined_ex_raid_setting: i64,
+pub struct FeatureUnlockLevelSettings {
+    pub lures_unlock_level: i64,
+    pub rare_candy_conversion_unlock_level: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObFeatureUnlockSettings {
-    pub ob_bulk_postcard_delete_enabled: i64,
-    pub ob_feature_unlock_settings_number3: i64,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct ObFormsRefactorSettings {
-    pub ob_forms_refactor_settings_bool1: bool,
-    pub ob_forms_refactor_settings_bool2: bool,
-    pub ob_forms_refactor_settings_bool3: bool,
-    pub ob_enable_singular_shadow_form: bool,
+pub struct FormsRefactorSettings {
+    #[serde(rename = "enableShadowV2Gmts")]
+    pub enable_shadow_v2gmts: bool,
+    pub read_from_new_pokedex_entry_fields: bool,
+    pub validate_no_shadows_in_quest_or_invasion_gmts: bool,
+    pub validate_no_shadow_or_purified_in_gmts: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -952,12 +1110,12 @@ pub struct Form {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObFortPowerUpSettings {
+pub struct FortPowerUpLevelSettings {
     pub level: String,
-    pub ob_points_needed_for_level_up: Option<i64>,
+    pub min_power_up_points_required: Option<i64>,
     #[serde(default)]
-    pub ob_power_up_reward: Vec<String>,
-    pub ob_duration_of_power_up_ms: Option<i64>,
+    pub powerup_level_rewards: Vec<String>,
+    pub additional_level_powerup_duration_ms: Option<i64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -979,17 +1137,17 @@ pub struct GeotargetedQuestSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObGiftingSettings {
-    pub ob_convert_items_to_stardust_when_full_enabled: bool,
-    pub ob_stardust_to_reward_when_full: i64,
+pub struct GiftingSettings {
+    pub enable_gift_to_stardust: bool,
+    pub stardust_per_gift: i64,
     pub stardust_multiplier: Vec<StardustMultiplier>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct StardustMultiplier {
-    pub ob_stardust_base_multiplier: f64,
-    pub ob_stardust_multiplier_probability: f64,
+    pub multiplier: f64,
+    pub random_weight: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1023,7 +1181,13 @@ pub struct GymLevel {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObGameMasterLanguageSettings {
+pub struct HapticsSettings {
+    pub advanced_haptics_enabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LanguageSettings {
     pub language: String,
     pub is_enabled: Option<bool>,
 }
@@ -1049,6 +1213,7 @@ pub struct IapSettings {
     pub daily_defender_bonus_max_defenders: i64,
     pub daily_defender_bonus_currency: Vec<String>,
     pub min_time_between_claims_ms: String,
+    pub prohibit_purchase_in_test_envirnment: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1066,15 +1231,22 @@ pub struct IncidentPriority {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObInvasionCharacterSettings {
-    pub ob_invasion_character: Vec<String>,
+pub struct IncidentVisibilitySettings {
+    pub hide_incident_for_character: Vec<String>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct IncubatorFlowSettings {
+    pub main_map_icon_enabled: bool,
+    pub pokemon_page_icon_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct PokestopInvasionAvailabilitySettings {
-    pub availability_start_minute: i64,
-    pub availability_end_minute: i64,
+    pub availability_start_minute: String,
+    pub availability_end_minute: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1090,11 +1262,12 @@ pub struct InventorySettings {
     pub max_item_boost_duration_ms: String,
     pub enable_eggs_not_inventory: bool,
     pub special_egg_overflow_spots: i64,
-    pub ob_enable_raid_pass_overflow: bool,
-    pub ob_base_postcard_storage: i64,
-    pub ob_max_postcard_storage: i64,
-    #[serde(rename = "obEvolutionStoneAMaxCount")]
-    pub ob_evolution_stone_amax_count: i64,
+    pub can_raid_pass_overflow_bag_space: bool,
+    pub base_postcards: i64,
+    pub max_postcards: i64,
+    #[serde(rename = "maxStoneACount")]
+    pub max_stone_acount: i64,
+    pub postcard_expansion_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1105,16 +1278,17 @@ pub struct ItemSettings {
     pub category: String,
     pub drop_trainer_level: Option<i64>,
     pub food: Option<Food>,
+    pub item_cap: Option<i64>,
+    pub global_event_ticket: Option<GlobalEventTicket>,
     pub potion: Option<Potion>,
     pub stardust_boost: Option<StardustBoost>,
+    pub incident_ticket: Option<IncidentTicket>,
     pub revive: Option<Revive>,
     pub inventory_upgrade: Option<InventoryUpgrade>,
     pub ignore_inventory_space: Option<bool>,
     pub xp_boost: Option<XpBoost>,
-    pub incident_ticket: Option<IncidentTicket>,
     pub egg_incubator: Option<EggIncubator>,
     pub incense: Option<Incense>,
-    pub global_event_ticket: Option<GlobalEventTicket>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1135,6 +1309,60 @@ pub struct Food {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct GlobalEventTicket {
+    pub event_start_time: String,
+    pub event_end_time: String,
+    pub item_bag_description_key: String,
+    pub client_event_start_time_utc_ms: String,
+    pub client_event_end_time_utc_ms: String,
+    pub ticket_item: Option<String>,
+    pub event_banner_url: Option<String>,
+    pub background_image_url: Option<String>,
+    pub giftable: Option<bool>,
+    pub gift_item: Option<String>,
+    #[serde(rename = "displayV2Enabled")]
+    pub display_v2enabled: Option<bool>,
+    pub title_image_url: Option<String>,
+    pub event_datetime_range_key: Option<String>,
+    pub text_rewards_key: Option<String>,
+    #[serde(default)]
+    pub icon_rewards: Vec<IconReward>,
+    pub details_link_key: Option<String>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct IconReward {
+    #[serde(rename = "type")]
+    pub type_field: String,
+    pub avatar_template_id: Option<String>,
+    pub item: Option<Item>,
+    pub stardust: Option<i64>,
+    pub pokemon_encounter: Option<PokemonEncounter>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Item {
+    pub item: String,
+    pub amount: Option<i64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PokemonEncounter {
+    pub pokemon_id: String,
+    pub pokemon_display: Option<PokemonDisplay>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PokemonDisplay {
+    pub form: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct Potion {
     pub sta_amount: Option<i64>,
     pub sta_percent: Option<f64>,
@@ -1145,6 +1373,14 @@ pub struct Potion {
 pub struct StardustBoost {
     pub stardust_multiplier: f64,
     pub boost_duration_ms: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct IncidentTicket {
+    pub upgrade_requirement_count: Option<i64>,
+    pub upgraded_item: Option<String>,
+    pub ignore_full_inventory: Option<bool>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1169,14 +1405,6 @@ pub struct XpBoost {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct IncidentTicket {
-    pub upgrade_requirement_count: Option<i64>,
-    pub upgraded_item: Option<String>,
-    pub ignore_full_inventory: Option<bool>,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct EggIncubator {
     pub incubator_type: String,
     pub uses: Option<i64>,
@@ -1192,27 +1420,14 @@ pub struct Incense {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct GlobalEventTicket {
-    pub event_start_time: String,
-    pub event_end_time: String,
-    pub item_bag_description_key: String,
-    pub ob_ticket1: Option<String>,
-    pub ob_ticket_shop_image_url: Option<String>,
-    pub client_event_start_time_utc_ms: String,
-    pub client_event_end_time_utc_ms: String,
-    pub ob_is_ticket_eligible_for_gifting: Option<bool>,
-    pub ob_ticket_to_gift: Option<String>,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct ItemInventoryUpdateSettings {
-    pub ob_item_category_settings: Vec<ObItemCategorySetting>,
+    pub feature_enabled: bool,
+    pub category_proto: Vec<CategoryProto>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObItemCategorySetting {
+pub struct CategoryProto {
     pub category: Vec<String>,
     pub category_name: String,
     pub sort_oder: i64,
@@ -1220,8 +1435,15 @@ pub struct ObItemCategorySetting {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObLanguageSelectorSettings {
-    pub ob_language_selector_enabled: bool,
+pub struct LanguageSelectorSettings {
+    pub language_selector_enabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationCardSettings {
+    pub location_card: String,
+    pub image_url: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1235,14 +1457,20 @@ pub struct LoadingScreenSettings {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct ColorSettings {
-    #[serde(rename = "warning_text")]
-    pub warning_text: String,
     #[serde(rename = "progress_background")]
     pub progress_background: String,
-    #[serde(rename = "progress_bar_left")]
-    pub progress_bar_left: String,
     #[serde(rename = "progress_bar_right")]
     pub progress_bar_right: String,
+    #[serde(rename = "progress_bar_left")]
+    pub progress_bar_left: String,
+    #[serde(rename = "warning_text")]
+    pub warning_text: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LocationCardFeatureSettings {
+    pub enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1263,55 +1491,57 @@ pub struct LuckyPokemonSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct ObMainMenuCameraButtonSettings {}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct MapDisplaySettings {
     pub show_enhanced_sky: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObInteractionRangeSettings {
+pub struct MapObjectsInteractionRangeSettings {
     pub interaction_range_meters: f64,
     pub far_interaction_range_meters: f64,
     pub remote_interaction_range_meters: f64,
+    pub white_pulse_radius_meters: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObMegaLevelSettings {
+pub struct MegaEvoLevelSettings {
     pub level: Option<i64>,
     pub pokemon_id: Option<String>,
-    pub ob_mega_level_unlock_settings: ObMegaLevelUnlockSettings,
-    pub ob_mega_level_cooldown_settings: ObMegaLevelCooldownSettings,
-    pub ob_mega_level_perks: ObMegaLevelPerks,
+    pub progression: Progression,
+    pub cooldown: Cooldown,
+    pub effects: Effects,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObMegaLevelUnlockSettings {
-    pub ob_mega_evolutions_required_to_unlock: Option<i64>,
-    #[serde(rename = "obGameMasterSettings2Message1Number2")]
-    pub ob_game_master_settings2message1number2: i64,
-    #[serde(rename = "obGameMasterSettings2Message1Number3")]
-    pub ob_game_master_settings2message1number3: i64,
+pub struct Progression {
+    pub points_required: Option<i64>,
+    pub points_limit_per_period: i64,
+    pub points_per_mega_evo_action: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObMegaLevelCooldownSettings {
+pub struct Cooldown {
     pub duration_ms: String,
-    pub ob_max_mega_candy_required: i64,
-    #[serde(rename = "obGameMasterSettings2Message2Number3")]
-    pub ob_game_master_settings2message2number3: i64,
+    pub bypass_cost_initial: i64,
+    pub bypass_cost_rounding_value: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObMegaLevelPerks {
-    pub ob_mega_perk_attack_boost_from_mega_different_type: f64,
-    pub ob_mega_perk_attack_boost_from_mega_same_type: f64,
-    pub ob_mega_perk_active_mega_bonus_catch_candy: i64,
-    pub ob_mega_perk_xp_catch_bonus: Option<i64>,
-    pub ob_mega_perk_xl_candy_bonus_chance: Option<f64>,
+pub struct Effects {
+    pub different_type_attack_boost: f64,
+    pub same_type_attack_boost: f64,
+    pub same_type_extra_catch_candy: i64,
+    pub same_type_extra_catch_xp: Option<i64>,
+    pub same_type_extra_catch_candy_xl_chance: Option<f64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1323,11 +1553,11 @@ pub struct MegaEvoSettings {
     pub max_candy_hoard_size: i64,
     pub enable_buddy_walking_mega_energy_award: bool,
     pub active_mega_bonus_catch_candy: i64,
-    pub ob_mega_level_settings_shared_bool1: bool,
-    pub ob_mega_level_settings_shared_bool2: bool,
-    pub ob_max_mega_levels: i64,
-    pub ob_mega_evo_settings_number2: Option<i64>,
-    pub ob_mega_level_enabled: bool,
+    pub enable_mega_level: bool,
+    pub enable_mega_evolve_in_lobby: bool,
+    pub num_mega_levels: i64,
+    pub client_mega_cooldown_buffer_ms: i64,
+    pub enable_mega_level_legacy_award: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1343,15 +1573,674 @@ pub struct MonodepthSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct NearbyPokemonSettings {
+    pub ob_enabled: bool,
+    pub ob_nearby_pokemon_settings_bool1: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NeutralAvatarSettings {
+    pub default_neutral_avatar: DefaultNeutralAvatar,
+    pub female_neutral_avatar: FemaleNeutralAvatar,
+    pub male_neutral_avatar: MaleNeutralAvatar,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct DefaultNeutralAvatar {
+    pub articles: Articles,
+    pub body_blend: BodyBlend,
+    pub head_selection: HeadSelection,
+    pub skin_gradient: SkinGradient,
+    pub hair_gradient: HairGradient,
+    pub nose_selection: NoseSelection,
+    pub ear_selection: EarSelection,
+    pub mouth_selection: MouthSelection,
+    pub face_positions: FacePositions,
+    pub eye_gradient: EyeGradient,
+    pub eye_selection: EyeSelection,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Articles {
+    pub hair: Hair,
+    pub shirt: Shirt,
+    pub pants: Pants,
+    pub hat: Hat,
+    pub shoes: Shoes,
+    pub backpack: Backpack,
+    pub gloves: Gloves,
+    pub socks: Socks,
+    pub pose: Pose,
+    pub eyebrow: Eyebrow,
+    pub eyelash: Eyelash,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Hair {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Shirt {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Pants {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Hat {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Shoes {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Backpack {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Gloves {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Socks {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Pose {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Eyebrow {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Eyelash {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BodyBlend {
+    pub bust: f64,
+    pub hips: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HeadSelection {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SkinGradient {
+    pub color_keys: Vec<ColorKey>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey {
+    pub key_position: f64,
+    pub red: f64,
+    pub green: f64,
+    pub blue: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HairGradient {
+    pub color_keys: Vec<ColorKey2>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey2 {
+    pub red: f64,
+    pub green: f64,
+    pub blue: f64,
+    pub key_position: Option<f64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NoseSelection {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EarSelection {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MouthSelection {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FacePositions {
+    pub brow_depth: f64,
+    pub brow_horizontal: f64,
+    pub brow_vertical: f64,
+    pub eye_depth: f64,
+    pub eye_horizontal: f64,
+    pub eye_vertical: f64,
+    pub mouth_depth: f64,
+    pub mouth_horizontal: f64,
+    pub mouth_vertical: f64,
+    pub nose_depth: f64,
+    pub nose_vertical: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EyeGradient {
+    pub color_keys: Vec<ColorKey3>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey3 {
+    pub key_position: Option<f64>,
+    pub red: Option<f64>,
+    pub green: Option<f64>,
+    pub blue: Option<f64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EyeSelection {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FemaleNeutralAvatar {
+    pub articles: Articles2,
+    pub body_blend: BodyBlend2,
+    pub head_selection: HeadSelection2,
+    pub skin_gradient: SkinGradient2,
+    pub hair_gradient: HairGradient2,
+    pub nose_selection: NoseSelection2,
+    pub ear_selection: EarSelection2,
+    pub mouth_selection: MouthSelection2,
+    pub face_positions: FacePositions2,
+    pub eye_gradient: EyeGradient2,
+    pub eye_selection: EyeSelection2,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Articles2 {
+    pub hair: Hair2,
+    pub shirt: Shirt2,
+    pub pants: Pants2,
+    pub hat: Hat2,
+    pub shoes: Shoes2,
+    pub backpack: Backpack2,
+    pub gloves: Gloves2,
+    pub socks: Socks2,
+    pub belt: Belt,
+    pub necklace: Necklace,
+    pub pose: Pose2,
+    pub eyebrow: Eyebrow2,
+    pub eyelash: Eyelash2,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Hair2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Shirt2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Pants2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Hat2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Shoes2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Backpack2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Gloves2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Socks2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Belt {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Necklace {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Pose2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Eyebrow2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Eyelash2 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BodyBlend2 {
+    pub bust: f64,
+    pub hips: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HeadSelection2 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SkinGradient2 {
+    pub color_keys: Vec<ColorKey4>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey4 {
+    pub key_position: f64,
+    pub red: f64,
+    pub green: f64,
+    pub blue: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HairGradient2 {
+    pub color_keys: Vec<ColorKey5>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey5 {
+    pub red: f64,
+    pub green: f64,
+    pub blue: f64,
+    pub key_position: Option<f64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NoseSelection2 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EarSelection2 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MouthSelection2 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FacePositions2 {
+    pub brow_depth: f64,
+    pub brow_horizontal: f64,
+    pub brow_vertical: f64,
+    pub eye_depth: f64,
+    pub eye_horizontal: f64,
+    pub eye_vertical: f64,
+    pub mouth_depth: f64,
+    pub mouth_horizontal: f64,
+    pub mouth_vertical: f64,
+    pub nose_depth: f64,
+    pub nose_vertical: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EyeGradient2 {
+    pub color_keys: Vec<ColorKey6>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey6 {
+    pub key_position: Option<f64>,
+    pub red: Option<f64>,
+    pub green: Option<f64>,
+    pub blue: Option<f64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EyeSelection2 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MaleNeutralAvatar {
+    pub articles: Articles3,
+    pub body_blend: BodyBlend3,
+    pub head_selection: HeadSelection3,
+    pub skin_gradient: SkinGradient3,
+    pub hair_gradient: HairGradient3,
+    pub nose_selection: NoseSelection3,
+    pub ear_selection: EarSelection3,
+    pub mouth_selection: MouthSelection3,
+    pub face_positions: FacePositions3,
+    pub eye_gradient: EyeGradient3,
+    pub eye_selection: EyeSelection3,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Articles3 {
+    pub hair: Hair3,
+    pub shirt: Shirt3,
+    pub pants: Pants3,
+    pub hat: Hat3,
+    pub shoes: Shoes3,
+    pub backpack: Backpack3,
+    pub gloves: Gloves3,
+    pub socks: Socks3,
+    pub pose: Pose3,
+    pub eyebrow: Eyebrow3,
+    pub eyelash: Eyelash3,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Hair3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Shirt3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Pants3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Hat3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Shoes3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Backpack3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Gloves3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Socks3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Pose3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Eyebrow3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Eyelash3 {
+    pub article_id: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BodyBlend3 {
+    pub musculature: f64,
+    pub shoulders: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HeadSelection3 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SkinGradient3 {
+    pub color_keys: Vec<ColorKey7>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey7 {
+    pub key_position: f64,
+    pub red: f64,
+    pub green: f64,
+    pub blue: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct HairGradient3 {
+    pub color_keys: Vec<ColorKey8>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey8 {
+    pub red: f64,
+    pub green: f64,
+    pub blue: f64,
+    pub key_position: Option<f64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NoseSelection3 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EarSelection3 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct MouthSelection3 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FacePositions3 {
+    pub brow_depth: f64,
+    pub brow_horizontal: f64,
+    pub brow_vertical: f64,
+    pub eye_depth: f64,
+    pub eye_horizontal: f64,
+    pub eye_vertical: f64,
+    pub mouth_depth: f64,
+    pub mouth_horizontal: f64,
+    pub mouth_vertical: f64,
+    pub nose_depth: f64,
+    pub nose_vertical: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EyeGradient3 {
+    pub color_keys: Vec<ColorKey9>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ColorKey9 {
+    pub blue: f64,
+    pub key_position: Option<f64>,
+    pub red: Option<f64>,
+    pub green: Option<f64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct EyeSelection3 {
+    pub selection: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct NewsFeedClientSettings {
-    pub is_news_feed_polling_enabled: bool,
-    pub get_news_feed_polling_rate_minutes: i64,
+    pub news_feed_polling_enabled: bool,
+    pub news_feed_polling_rate_minutes: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct NonCombatMoveSettings {
+    pub unique_id: String,
+    pub cost: Cost,
+    pub bonus_effect: BonusEffect,
+    pub duration_ms: String,
+    pub bonus_type: String,
+    pub enable_multi_use: bool,
+    pub extra_duration_ms: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct Cost {
+    pub candy_cost: i64,
+    pub stardust_cost: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct BonusEffect {
+    pub time_bonus: Option<TimeBonus>,
+    pub space_bonus: Option<SpaceBonus>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct TimeBonus {
+    pub affected_items: Vec<String>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SpaceBonus {
+    pub pokemon_visible_range_meters: f64,
+    pub encounter_range_meters: f64,
+    pub server_allowable_encounter_range_meters: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct OnboardingSettings {
-    pub ob_onboarding_settings_number1: i64,
+    pub disable_initial_ar_prompt: bool,
+    pub ar_prompt_player_level: i64,
+    pub adventure_sync_prompt_step: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1359,6 +2248,52 @@ pub struct OnboardingSettings {
 pub struct OnboardingV2Settings {
     pub pokedex_id: Vec<String>,
     pub egg_km_until_hatch: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PartyDarkLaunchSettings {
+    pub rollout_players_per_billion: i64,
+    pub create_or_join_wait_probability: Vec<CreateOrJoinWaitProbability>,
+    pub probability_to_create_percent: i64,
+    pub leave_party_probablity: Vec<LeavePartyProbablity>,
+    pub update_location_enabled: bool,
+    pub update_location_override_period_ms: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CreateOrJoinWaitProbability {
+    pub weight: i64,
+    pub wait_time_ms: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct LeavePartyProbablity {
+    pub weight: i64,
+    pub max_duration_ms: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PartyPlayGeneralSettings {
+    pub enabled: bool,
+    pub min_player_level: i64,
+    pub creation_to_start_timeout_ms: String,
+    pub compliance_zones_enabled: bool,
+    pub enable_party_raid_information: bool,
+    pub friend_requests_enabled: bool,
+    pub party_expiry_duration_ms: String,
+    pub party_expiry_warning_minutes: i64,
+    pub enabled_friend_status_increase: bool,
+    pub restart_party_rejoin_prompt_enabled: bool,
+    #[serde(rename = "partyNewQuestNotificationV2Enabled")]
+    pub party_new_quest_notification_v2enabled: bool,
+    pub pg_delivery_mechanic: String,
+    pub party_catch_tags_enabled: bool,
+    pub party_quest_encounter_reward_enabled: bool,
+    pub max_stacked_encounter_reward: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1372,8 +2307,8 @@ pub struct PartyRecommendationSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPhotoSettings {
-    pub ob_resolution_save_multiplier: f64,
+pub struct PhotoSettings {
+    pub screen_capture_size: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1393,7 +2328,7 @@ pub struct PlayerLevel {
     pub max_egg_player_level: i64,
     pub max_encounter_player_level: i64,
     pub max_quest_encounter_player_level: i64,
-    pub ob_max_mega_level: i64,
+    pub extended_player_level_threshold: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1404,27 +2339,34 @@ pub struct PokecoinPurchaseDisplayGmt {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPokedexCategoriesSettings {
+pub struct PokedexCategoriesSettings {
     pub feature_enabled: bool,
-    pub ob_special_categories: Vec<ObSpecialCategory>,
-    pub ob_pokedex_categories_settings_bool1: bool,
-    pub ob_enable_pokedex_search: bool,
+    pub pokedex_category_settings_in_order: Vec<PokedexCategorySettingsInOrder>,
+    pub client_shiny_form_check: bool,
+    pub search_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObSpecialCategory {
-    pub ob_pokedex_category: String,
-    pub ob_category_obtained_unlock_requirement: i64,
+pub struct PokedexCategorySettingsInOrder {
+    pub pokedex_category: String,
+    pub milestone_goal: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct PokedexSizeStatsSettings {
-    pub ob_pokedex_size_stat_feature_enabled: bool,
-    pub ob_pokemon_size_catch_requirement_to_unlock_stats: i64,
-    pub ob_pokemon_weight_catch_requirement_to_unlock_stats: i64,
-    pub ob_pokedex_size_stats_settings_float1: f64,
+pub struct PokedexSizeStatsSystemSettings {
+    pub display_enabled: bool,
+    pub pokedex_display_pokemon_tracked_threshold: i64,
+    pub record_display_pokemon_tracked_threshold: i64,
+    pub num_days_new_bubble_track: f64,
+    pub enable_randomized_height_and_weight_for_wild_pokemon: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct PokemonFxSettings {
+    pub hiding_in_photo: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1481,31 +2423,72 @@ pub struct PokemonUpgrades {
     pub default_cp_boost_additional_level: i64,
     pub xl_candy_min_player_level: i64,
     pub xl_candy_cost: Vec<i64>,
-    pub ob_max_mega_level: i64,
+    pub xl_candy_min_pokemon_level: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPopupControlSettings {}
+pub struct PopupControlSettings {
+    pub hide_medal_earned_popup_unit_after_first_pokemon: bool,
+    pub hide_aware_of_your_surroundings_popup: bool,
+    pub hide_weather_warning_popup: bool,
+}
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPostCardCollectionSettings {
+pub struct PostcardCollectionSettings {
     pub enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPowerUpPoiSettings {
-    pub ob_min_player_level_for_scanning: i64,
-    pub ob_points_multiplier: f64,
+pub struct PowerUpPokestopsSettings {
+    pub power_up_pokestops_min_player_level: i64,
+    pub validate_pokestop_on_fort_search_percent: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPushGatewaySettings {
-    pub ob_push_gateway_min_level1: i64,
-    pub ob_push_gateway_min_level2: i64,
+pub struct PrimalEvoSettings {
+    pub common_temp_settings: CommonTempSettings,
+    pub max_candy_hoard_size: i64,
+    pub type_boosts: Vec<TypeBoost>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct CommonTempSettings {
+    pub evolution_length_ms: String,
+    pub num_temp_evo_levels: i64,
+    pub enable_buddy_walking_temp_evo_energy_award: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct TypeBoost {
+    pub pokemon_id: String,
+    pub boost_type: Vec<String>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct VpsEventSettings {
+    pub fort_vps_events: Vec<FortVpsEvent>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct FortVpsEvent {
+    pub fort_id: String,
+    pub start_time_ms: String,
+    pub end_time_ms: String,
+    pub vps_event: VpsEvent,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct VpsEvent {
+    pub event_type: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1548,22 +2531,47 @@ pub struct RaidSettings {
     pub max_num_friend_invites_per_action: i64,
     pub unsupported_raid_levels_for_friend_invites: Vec<String>,
     pub unsupported_remote_raid_levels: Vec<String>,
-    pub ob_raid_client_setting: Vec<ObRaidClientSetting>,
-    pub ob_raid_client_setting2: ObRaidClientSetting2,
+    pub raid_level_music_overrides: Vec<RaidLevelMusicOverride>,
+    pub raid_feature_flags: RaidFeatureFlags,
+    pub boot_raid_enabled: bool,
+    pub friend_requests_enabled: bool,
+    pub remote_raid_distance_validation: bool,
+    pub popup_time_ms: i64,
+    pub failed_friend_invite_info_enabled: bool,
+    pub min_players_to_boot: i64,
+    pub boot_cutoff_ms: i64,
+    pub boot_solo_ms: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObRaidClientSetting {
+pub struct RaidLevelMusicOverride {
     pub raid_level: String,
-    pub ob_raid_client_setting_string1: String,
+    pub battle_music_key: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObRaidClientSetting2 {
-    #[serde(rename = "obRaidClientSettings2Bool1")]
-    pub ob_raid_client_settings2bool1: bool,
+pub struct RaidFeatureFlags {
+    pub use_cached_raid_boss_pokemon: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RaidLobbyCounterSettings {
+    pub polling_enabled: bool,
+    pub polling_interval_ms: i64,
+    pub subscribe_enabled: bool,
+    pub publish_enabled: bool,
+    pub map_display_enabled: bool,
+    pub nearby_display_enabled: bool,
+    pub show_counter_radius_meters: f64,
+    #[serde(rename = "subscribeS2Level")]
+    pub subscribe_s2level: i64,
+    pub max_count_to_update: i64,
+    pub subscription_namespace: String,
+    pub polling_radius_meters: f64,
+    pub publish_cutoff_time_ms: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1581,7 +2589,8 @@ pub struct ReferralSettings {
     pub recent_features: Vec<RecentFeature>,
     pub add_referrer_grace_period_ms: String,
     pub min_num_days_without_session_for_lapsed_player: i64,
-    pub ob_deep_link_url: String,
+    pub deep_link_url: String,
+    pub image_share_referral_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1594,50 +2603,121 @@ pub struct RecentFeature {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct SquashSettings {
+    pub enabled: bool,
+    pub daily_squash_limit: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RoutesNearbyNotifSettings {
+    pub max_notifs: i64,
+    pub time_between_notifs_ms: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RoutesPartyPlayInteropSettings {
+    pub consumption_interoperable: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RouteBadgeSettings {
+    pub target: Vec<i64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct RouteCreationSettings {
     pub max_open_routes: i64,
-    pub min_stops_amount: i64,
-    pub max_stops_amount: i64,
+    pub min_total_distance_m: f64,
     pub max_total_distance_m: f64,
-    pub min_distance_between_stops_m: f64,
-    pub max_distance_between_stops_m: f64,
-    pub max_distance_between_checkpoints_m: f64,
     pub max_name_length: i64,
     pub max_description_length: i64,
     pub min_player_level: i64,
+    pub enabled: bool,
+    pub enable_immediate_route_ingestion: bool,
+    pub min_breadcrumb_distance_delta_meters: i64,
+    pub creation_limit_window_days: i64,
+    pub creation_limit_per_window: i64,
+    pub max_distance_from_anchor_pots_m: f64,
+    pub max_distance_warning_distance_meters: i64,
+    pub max_recording_speed_meters_per_second: i64,
+    pub moderation_enabled: bool,
+    pub client_breadcrumb_settings: ClientBreadcrumbSettings,
+    pub duration_distance_to_speed_multiplier: f64,
+    pub duration_buffer_s: i64,
+    pub interaction_range_meters: i64,
+    pub max_client_map_panning_distance_m: f64,
+    pub resume_range_meters: i64,
+    pub max_recall_count_threshold: i64,
+    pub allowable_gps_drift_meters: i64,
+    pub max_post_punishment_ban_time_ms: String,
+    pub max_submission_count_threshold: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ClientBreadcrumbSettings {
+    pub session_duration_m: f64,
+    pub update_interval_s: f64,
+    pub as_fallback_foreground_reporting_inverval_s: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RouteDiscoverySettings {
     pub nearby_visible_radius_meters: f64,
+    pub popular_routes_fraction: f64,
+    pub new_route_threshold: i64,
+    pub max_routes_viewable: i64,
+    pub max_client_map_panning_distance_meters: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct RouteNpcGiftSettings {
+    pub max_nearby_poi_count: i64,
+    #[serde(rename = "maxS2CellQueryCount")]
+    pub max_s2cell_query_count: i64,
+    pub max_nearby_poi_distance_meters: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct RoutePlaySettings {
     pub min_player_level: i64,
-    pub route_cooldown_minutes: i64,
     pub route_expiration_minutes: i64,
     pub route_pause_distance_m: i64,
+    pub bonus_active_distance_threshold_meters: i64,
+    pub margin_percentage: f64,
+    pub margin_minimum_meters: i64,
+    pub resume_range_meters: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObRouteStampCategorySettings {
+pub struct RouteStampCategorySettings {
     pub category: String,
-    pub ob_route_stamp_category_number1: i64,
+    pub collection_size: i64,
     pub sort_order: i64,
-    pub ob_is_route_stamp_category_default: bool,
+    pub active: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObSharedMoveSettings {
-    pub sta_percent: f64,
-    pub atk_percent: f64,
-    pub def_percent: f64,
-    pub duration_s: f64,
+pub struct SharedMoveSettings {
+    pub shadow_third_move_unlock_stardust_multiplier: f64,
+    pub shadow_third_move_unlock_candy_multiplier: f64,
+    pub purified_third_move_unlock_stardust_multiplier: f64,
+    pub purified_third_move_unlock_candy_multiplier: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SharedNonCombatMoveSettings {
+    pub non_combat_move_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1652,14 +2732,15 @@ pub struct SmeargleMovesSettings {
 pub struct GenderSettings {
     pub pokemon: String,
     pub gender: Gender,
+    pub ob_pokemon_form: Option<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Gender {
+    pub genderless_percent: Option<f64>,
     pub male_percent: Option<f64>,
     pub female_percent: Option<f64>,
-    pub genderless_percent: Option<f64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1670,9 +2751,6 @@ pub struct SponsoredGeofenceGiftSettings {
     pub enable_sponsored_geofence_gift: bool,
     pub fullscreen_disable_exit_button_time_ms: i64,
     pub balloon_gift_settings: BalloonGiftSettings,
-    pub ob_sponsored_geofence_gift_settings_bool1: bool,
-    pub ob_sponsored_geofence_gift_settings: Option<ObSponsoredGeofenceGiftSettings>,
-    pub ob_sponsored_geofence_gift_details: Option<ObSponsoredGeofenceGiftDetails>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1685,35 +2763,14 @@ pub struct BalloonGiftSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObSponsoredGeofenceGiftSettings {
-    pub ob_sponsored_geofence_gift_string1: String,
-    pub ob_sponsored_geofence_gift_string2: String,
-    pub ob_sponsored_geofence_gift_string3: String,
-    pub ob_sponsored_geofence_gift_string4: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct ObSponsoredGeofenceGiftDetails {
-    pub ads_logo: String,
-    pub partner_name: String,
-    pub full_screen_static_image: String,
-    pub title: String,
-    pub description: String,
-    pub cta_url: String,
-    pub campaign_identifier: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct StickerMetadata {
     pub sticker_id: String,
     pub sticker_url: Option<String>,
     pub max_count: i64,
     pub pokemon_id: Option<String>,
-    pub ob_sticker_category: Vec<String>,
-    pub ob_sticker_date: i64,
-    pub ob_sticker_sort_order: Option<i64>,
+    pub category: Vec<String>,
+    pub release_date: Option<i64>,
+    pub region_id: Option<i64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1722,22 +2779,46 @@ pub struct IapItemDisplay {
     pub sku: String,
     pub category: String,
     pub sort_order: Option<i64>,
-    pub hidden: Option<bool>,
-    pub sprite_id: Option<String>,
+    pub sale: Option<bool>,
     pub sku_enable_time: Option<String>,
     pub sku_disable_time: Option<String>,
     pub sku_enable_time_utc_ms: Option<String>,
     pub sku_disable_time_utc_ms: Option<String>,
-    pub sale: Option<bool>,
+    pub sprite_id: Option<String>,
     pub title: Option<String>,
     pub description: Option<String>,
+    pub hidden: Option<bool>,
     pub image_url: Option<String>,
+    pub max_level: Option<i64>,
+    pub show_discount_tag: Option<bool>,
+    pub show_strikethrough_price: Option<bool>,
+    pub total_value: Option<i64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObInAppSurveySettings {
-    pub ob_in_app_survey_number1: i64,
+pub struct StyleShopSettings {
+    #[serde(rename = "v2Enabled")]
+    pub v2enabled: bool,
+    pub sets_enabled: bool,
+    pub recommended_item_icon_names: Vec<String>,
+    pub cart_disabled: bool,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct InAppSurveySettings {
+    pub survey_poll_frequency_s: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct TappableSettings {
+    pub visible_radius_meters: f64,
+    pub spawn_angle_degrees: f64,
+    pub movement_respawn_threshold_meters: f64,
+    pub buddy_fov_degress: f64,
+    pub avg_tappables_in_view: f64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1756,10 +2837,19 @@ pub struct TemporaryEvolution {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObTicketGiftingSettings {
+pub struct TicketGiftingSettings {
     pub min_player_level: i64,
-    pub ob_max_number_of_gifts_per_day: i64,
-    pub ob_ticket_gift_settings_string1: String,
+    pub daily_player_gifting_limit: i64,
+    pub min_required_friendship_level: String,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct TodayViewSettings {
+    pub version: i64,
+    pub today_view_display_order: Vec<String>,
+    pub season_view_display_order: Vec<String>,
+    pub special_view_display_order: Vec<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1786,12 +2876,12 @@ pub struct Avatar2 {
 #[serde(rename_all = "camelCase")]
 pub struct AvailablePokemon {
     pub pokemon_type: String,
-    pub pokemon_display: Option<PokemonDisplay>,
+    pub pokemon_display: Option<PokemonDisplay2>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct PokemonDisplay {
+pub struct PokemonDisplay2 {
     pub form: String,
 }
 
@@ -1819,7 +2909,6 @@ pub struct PokemonFamily {
 #[serde(rename_all = "camelCase")]
 pub struct PokemonSettings {
     pub pokemon_id: String,
-    pub model_scale: Option<f64>,
     #[serde(rename = "type")]
     pub type_field: String,
     pub type2: Option<String>,
@@ -1830,55 +2919,60 @@ pub struct PokemonSettings {
     pub quick_moves: Vec<String>,
     #[serde(default)]
     pub cinematic_moves: Vec<String>,
-    #[serde(default)]
-    pub animation_time: Vec<f64>,
-    pub evolution_pips: Option<i64>,
+    pub pokemon_class: Option<String>,
     pub pokedex_height_m: f64,
     pub pokedex_weight_kg: f64,
-    pub parent_pokemon_id: Option<String>,
     pub height_std_dev: f64,
     pub weight_std_dev: f64,
     pub family_id: String,
-    pub candy_to_evolve: Option<i64>,
     pub km_buddy_distance: f64,
-    pub buddy_size: Option<String>,
-    pub model_height: f64,
-    pub model_scale_v2: f64,
+    pub form: Option<String>,
+    pub third_move: ThirdMove,
+    pub is_transferable: Option<bool>,
+    pub is_tradable: Option<bool>,
+    pub is_deployable: Option<bool>,
+    pub model_scale: Option<f64>,
+    #[serde(default)]
+    pub animation_time: Vec<f64>,
+    pub evolution_pips: Option<i64>,
+    pub parent_pokemon_id: Option<String>,
+    pub model_height: Option<f64>,
+    pub model_scale_v2: Option<f64>,
     pub buddy_offset_male: Option<Vec<f64>>,
     pub buddy_offset_female: Option<Vec<f64>>,
     pub buddy_scale: Option<f64>,
     pub buddy_portrait_offset: Option<Vec<f64>>,
-    pub third_move: ThirdMove,
-    pub is_transferable: Option<bool>,
-    pub is_deployable: Option<bool>,
-    pub is_tradable: Option<bool>,
     pub buddy_group_number: Option<i64>,
-    pub raid_boss_distance_offset: Option<f64>,
-    pub combat_player_focus_camera_angle: Option<Vec<f64>>,
-    pub shadow: Option<Shadow>,
-    #[serde(default)]
-    pub elite_cinematic_move: Vec<String>,
-    pub pokemon_class: Option<String>,
-    pub form: Option<String>,
-    #[serde(default)]
-    pub evolution_branch: Vec<EvolutionBranch>,
-    pub combat_shoulder_camera_angle: Option<Vec<f64>>,
-    pub combat_default_camera_angle: Option<Vec<f64>>,
-    pub combat_opponent_focus_camera_angle: Option<Vec<f64>>,
-    pub combat_player_pokemon_position_offset: Option<Vec<f64>>,
-    pub disable_transfer_to_pokemon_home: Option<bool>,
-    pub ob_pokemon_size_setting: Option<ObPokemonSizeSetting>,
-    #[serde(default)]
-    pub form_change: Vec<FormChange>,
-    #[serde(default)]
-    pub elite_quick_move: Vec<String>,
     #[serde(default)]
     pub evolution_ids: Vec<String>,
+    #[serde(default)]
+    pub evolution_branch: Vec<EvolutionBranch>,
+    pub buddy_size: Option<String>,
+    pub raid_boss_distance_offset: Option<f64>,
+    #[serde(default)]
+    pub elite_cinematic_move: Vec<String>,
+    pub candy_to_evolve: Option<i64>,
+    pub shadow: Option<Shadow>,
+    pub combat_player_focus_camera_angle: Option<Vec<f64>>,
     pub buddy_walked_mega_energy_award: Option<i64>,
+    pub combat_opponent_focus_camera_angle: Option<Vec<f64>>,
+    pub combat_shoulder_camera_angle: Option<Vec<f64>>,
+    pub combat_default_camera_angle: Option<Vec<f64>>,
+    pub combat_player_pokemon_position_offset: Option<Vec<f64>>,
     #[serde(default)]
-    pub temp_evo_overrides: Vec<TempEvoOverride>,
+    pub elite_quick_move: Vec<String>,
+    pub disable_transfer_to_pokemon_home: Option<bool>,
     #[serde(default)]
-    pub ob_costume_evolution: Vec<String>,
+    pub temp_evo_overrides: Vec<TempEvoOverride2>,
+    #[serde(default)]
+    pub form_change: Vec<FormChange>,
+    pub exclusive_key_item: Option<ExclusiveKeyItem>,
+    pub size_settings: Option<SizeSettings3>,
+    #[serde(default)]
+    pub allow_noevolve_evolution: Vec<String>,
+    #[serde(default)]
+    pub non_tm_cinematic_moves: Vec<String>,
+    pub buddy_portrait_rotation: Option<Vec<f64>>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1887,35 +2981,33 @@ pub struct Camera {
     pub disk_radius_m: Option<f64>,
     pub cylinder_radius_m: Option<f64>,
     pub cylinder_height_m: Option<f64>,
-    pub cylinder_ground_m: Option<f64>,
     pub shoulder_mode_scale: Option<f64>,
+    pub cylinder_ground_m: Option<f64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Encounter {
-    pub base_capture_rate: Option<f64>,
-    pub base_flee_rate: Option<f64>,
-    pub collision_radius_m: Option<f64>,
-    pub collision_height_m: Option<f64>,
-    pub collision_head_radius_m: Option<f64>,
     pub movement_type: Option<String>,
-    pub movement_timer_s: Option<f64>,
     pub jump_time_s: Option<f64>,
-    pub attack_timer_s: Option<f64>,
     pub attack_probability: Option<f64>,
     pub dodge_probability: Option<f64>,
     pub dodge_duration_s: Option<f64>,
-    pub dodge_distance: Option<f64>,
-    pub camera_distance: f64,
-    pub min_pokemon_action_frequency_s: f64,
-    pub max_pokemon_action_frequency_s: f64,
+    pub min_pokemon_action_frequency_s: Option<f64>,
+    pub max_pokemon_action_frequency_s: Option<f64>,
+    pub bonus_xl_candy_capture_reward: Option<i64>,
+    pub collision_radius_m: Option<f64>,
+    pub collision_height_m: Option<f64>,
+    pub collision_head_radius_m: Option<f64>,
+    pub movement_timer_s: Option<f64>,
+    pub attack_timer_s: Option<f64>,
     pub bonus_candy_capture_reward: Option<i64>,
     pub bonus_stardust_capture_reward: Option<i64>,
-    pub bonus_xl_candy_capture_reward: Option<i64>,
-    pub ob_shadow_form_base_capture_rate: Option<f64>,
-    pub ob_shadow_form_attack_probability: Option<f64>,
-    pub ob_shadow_form_dodge_probability: Option<f64>,
+    pub dodge_distance: Option<f64>,
+    pub camera_distance: Option<f64>,
+    pub shadow_base_capture_rate: Option<f64>,
+    pub shadow_attack_probability: Option<f64>,
+    pub shadow_dodge_probability: Option<f64>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -1935,35 +3027,29 @@ pub struct ThirdMove {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Shadow {
-    pub purification_stardust_needed: i64,
-    pub purification_candy_needed: i64,
-    pub purified_charge_move: String,
-    pub shadow_charge_move: String,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
 pub struct EvolutionBranch {
     pub evolution: Option<String>,
+    pub evolution_item_requirement: Option<String>,
+    pub evolution_item_requirement_cost: Option<i64>,
     pub candy_cost: Option<i64>,
+    pub km_buddy_distance_requirement: Option<f64>,
+    #[serde(default)]
+    pub quest_display: Vec<QuestDisplay>,
     pub form: Option<String>,
     pub gender_requirement: Option<String>,
     pub only_daytime: Option<bool>,
+    pub priority: Option<i64>,
+    pub only_dusk_period: Option<bool>,
     pub lure_item_requirement: Option<String>,
-    pub no_candy_cost_via_trade: Option<bool>,
-    pub only_nighttime: Option<bool>,
-    pub evolution_item_requirement: Option<String>,
-    pub only_upside_down: Option<bool>,
-    #[serde(default)]
-    pub quest_display: Vec<QuestDisplay>,
-    pub ob_purification_evolution_candy_cost: Option<i64>,
-    pub km_buddy_distance_requirement: Option<f64>,
     pub temporary_evolution: Option<String>,
     pub temporary_evolution_energy_cost: Option<i64>,
     pub temporary_evolution_energy_cost_subsequent: Option<i64>,
-    pub ob_evolution_branch_bool2: Option<bool>,
-    pub priority: Option<i64>,
+    pub no_candy_cost_via_trade: Option<bool>,
+    pub only_nighttime: Option<bool>,
+    pub only_upside_down: Option<bool>,
+    pub candy_cost_purified: Option<i64>,
+    pub evolution_move_requirement: Option<String>,
+    pub only_full_moon: Option<bool>,
     pub must_be_buddy: Option<bool>,
 }
 
@@ -1975,31 +3061,16 @@ pub struct QuestDisplay {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObPokemonSizeSetting {
-    pub ob_pokemon_size_multiplier_scale1: f64,
-    pub ob_pokemon_size_multiplier_scale2: f64,
-    pub ob_pokemon_size_multiplier_scale3: f64,
-    pub ob_pokemon_size_multiplier_scale4: f64,
-    pub ob_pokemon_size_multiplier_scale5: f64,
-    pub ob_pokemon_size_multiplier_scale6: f64,
-    pub ob_pokemon_size_multiplier_scale7: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale8: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale9: Option<f64>,
-    pub ob_pokemon_size_multiplier_scale10: Option<f64>,
-    pub ob_pokemon_size_settings_bool2: Option<bool>,
+pub struct Shadow {
+    pub purification_stardust_needed: i64,
+    pub purification_candy_needed: i64,
+    pub purified_charge_move: String,
+    pub shadow_charge_move: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct FormChange {
-    pub available_form: Vec<String>,
-    pub candy_cost: i64,
-    pub stardust_cost: i64,
-}
-
-#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
-#[serde(rename_all = "camelCase")]
-pub struct TempEvoOverride {
+pub struct TempEvoOverride2 {
     pub temp_evo_id: Option<String>,
     pub stats: Option<Stats2>,
     pub average_height_m: Option<f64>,
@@ -2013,6 +3084,7 @@ pub struct TempEvoOverride {
     pub buddy_offset_female: Option<Vec<f64>>,
     pub raid_boss_distance_offset: Option<f64>,
     pub buddy_portrait_offset: Option<Vec<f64>>,
+    pub buddy_portrait_rotation: Option<Vec<f64>>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2033,6 +3105,38 @@ pub struct Camera2 {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
+pub struct FormChange {
+    pub available_form: Vec<String>,
+    pub item: Option<String>,
+    pub item_cost_count: Option<i64>,
+    pub candy_cost: Option<i64>,
+    pub stardust_cost: Option<i64>,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct ExclusiveKeyItem {
+    pub item: String,
+    pub count: i64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
+pub struct SizeSettings3 {
+    pub xxs_lower_bound: f64,
+    pub xs_lower_bound: f64,
+    pub m_lower_bound: f64,
+    pub m_upper_bound: f64,
+    pub xl_upper_bound: f64,
+    pub xxl_upper_bound: f64,
+    pub xxs_scale_multiplier: f64,
+    pub xs_scale_multiplier: f64,
+    pub xl_scale_multiplier: f64,
+    pub xxl_scale_multiplier: f64,
+}
+
+#[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
+#[serde(rename_all = "camelCase")]
 pub struct MoveSettings {
     pub movement_id: String,
     pub animation_id: i64,
@@ -2047,7 +3151,6 @@ pub struct MoveSettings {
     pub damage_window_start_ms: i64,
     pub damage_window_end_ms: i64,
     pub energy_delta: Option<i64>,
-    pub is_locked: Option<bool>,
     pub critical_chance: Option<f64>,
     pub heal_scalar: Option<f64>,
 }
@@ -2069,47 +3172,38 @@ pub struct FormMapping {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObVerboseCombatSetting {
+pub struct VerboseLogCombatSettings {
     pub enabled: bool,
-    pub ob_verbose_combat_settings_bool1: bool,
-    pub ob_verbose_combat_settings_bool2: bool,
-    pub ob_verbose_combat_settings_bool3: bool,
-    pub ob_verbose_combat_settings_bool4: bool,
-    #[serde(rename = "obVerboseRaidShared1Bool8")]
-    pub ob_verbose_raid_shared1bool8: bool,
-    #[serde(rename = "obVerboseRaidShared2Bool9")]
-    pub ob_verbose_raid_shared2bool9: bool,
-    #[serde(rename = "obVerboseRaidShared3Bool9")]
-    pub ob_verbose_raid_shared3bool9: bool,
-    #[serde(rename = "obVerboseRaidShared4Bool9")]
-    pub ob_verbose_raid_shared4bool9: bool,
-    pub ob_verbose_combat_settings_number1: i64,
-    pub ob_verbose_combat_settings_bool5: bool,
-    pub ob_verbose_combat_settings_number2: i64,
+    pub enable_core_combat: bool,
+    pub enable_combat_challenge_setup: bool,
+    pub enable_combat_vs_seeker_setup: bool,
+    pub enable_web_socket: bool,
+    pub enable_on_application_focus: bool,
+    pub enable_on_application_pause: bool,
+    pub enable_on_application_quit: bool,
+    pub enable_exception_caught: bool,
+    pub progress_token_priority: i64,
+    pub enable_rpc_error_data: bool,
+    pub client_log_decay_time_in_hours: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObVerboseRaidSettings {
+pub struct VerboseLogRaidSettings {
     pub enabled: bool,
-    pub ob_verbose_raid_bool1: bool,
-    pub ob_verbose_raid_bool2: bool,
-    pub ob_verbose_raid_bool4: bool,
-    pub ob_verbose_raid_bool5: bool,
-    pub ob_verbose_raid_bool6: bool,
-    pub ob_verbose_raid_bool7: bool,
-    #[serde(rename = "obVerboseRaidShared1Bool8")]
-    pub ob_verbose_raid_shared1bool8: bool,
-    #[serde(rename = "obVerboseRaidShared2Bool9")]
-    pub ob_verbose_raid_shared2bool9: bool,
-    #[serde(rename = "obVerboseRaidShared3Bool10")]
-    pub ob_verbose_raid_shared3bool10: bool,
-    #[serde(rename = "obVerboseRaidShared4Bool11")]
-    pub ob_verbose_raid_shared4bool11: bool,
-    pub ob_verbose_raid_bool12: bool,
-    #[serde(rename = "obVerboseRaidShared5Bool13")]
-    pub ob_verbose_raid_shared5bool13: bool,
-    pub ob_verbose_raid_bool14: bool,
+    pub enable_join_lobby: bool,
+    pub enable_leave_lobby: bool,
+    pub enable_get_raid_details: bool,
+    pub enable_start_raid_battle: bool,
+    pub enable_attack_raid: bool,
+    pub enable_send_raid_invitation: bool,
+    pub enable_on_application_focus: bool,
+    pub enable_on_application_pause: bool,
+    pub enable_on_application_quit: bool,
+    pub enable_exception_caught: bool,
+    pub enable_progress_token: bool,
+    pub enable_rpc_error_data: bool,
+    pub enable_client_prediction_inconsistency_data: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2129,16 +3223,16 @@ pub struct VsSeekerLoot {
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct Reward {
+    pub item: Option<Item2>,
+    pub item_ranking_loot_table_count: Option<i64>,
     pub pokemon_reward: Option<bool>,
-    pub item: Option<Item>,
-    pub item_loot_table: Option<bool>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct Item {
-    pub count: i64,
+pub struct Item2 {
     pub stardust: Option<bool>,
+    pub count: i64,
     pub item: Option<String>,
 }
 
@@ -2173,12 +3267,12 @@ pub struct GuaranteedLimitedPokemonReward {
 #[serde(rename_all = "camelCase")]
 pub struct Pokemon3 {
     pub pokemon_id: String,
-    pub pokemon_display: Option<PokemonDisplay2>,
+    pub pokemon_display: Option<PokemonDisplay3>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct PokemonDisplay2 {
+pub struct PokemonDisplay3 {
     pub form: String,
 }
 
@@ -2225,39 +3319,39 @@ pub struct Range3 {
 #[serde(rename_all = "camelCase")]
 pub struct Pokemon4 {
     pub pokemon_id: String,
-    pub pokemon_display: Option<PokemonDisplay3>,
+    pub pokemon_display: Option<PokemonDisplay4>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct PokemonDisplay3 {
+pub struct PokemonDisplay4 {
     pub form: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObVsSeekerScheduleSettings {
-    pub ob_vs_seeker_schedule_setting_enabled: bool,
-    pub ob_vs_seeker_schedule_setting_bool2: bool,
-    pub ob_vs_seeker_schedule_setting_bool3: bool,
-    pub ob_vs_seeker_schedule: Vec<ObVsSeekerSchedule>,
+pub struct VsSeekerScheduleSettings {
+    pub enable_combat_hub_main: bool,
+    pub enable_combat_league_view: bool,
+    pub enable_today_view: bool,
+    pub season_schedules: Vec<SeasonSchedule>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObVsSeekerSchedule {
-    pub ob_vs_seeker_season_name: String,
+pub struct SeasonSchedule {
+    pub season_title: String,
     pub description_key: String,
-    pub ob_vs_seeker_schedule_window_details: Vec<ObVsSeekerScheduleWindowDetail>,
-    pub ob_vs_seeker_season_blog_url: String,
+    pub vs_seeker_schedules: Vec<VsSeekerSchedule>,
+    pub blog_url: String,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObVsSeekerScheduleWindowDetail {
+pub struct VsSeekerSchedule {
     pub start_time_ms: String,
     pub end_time_ms: String,
-    pub ob_vs_seeker_cups_in_window: Vec<String>,
+    pub vs_seeker_league_tempalte_id: Vec<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2307,12 +3401,12 @@ pub struct Camera3 {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObImpressionTrackingSettings {
-    pub ob_impression_tracking_settings_bool1: bool,
-    pub ob_impression_tracking_settings_bool2: bool,
-    pub ob_impression_tracking_settings_bool4: bool,
-    pub ob_impression_tracking_settings_bool5: bool,
-    pub ob_impression_tracking_settings_bool6: bool,
+pub struct ImpressionTrackingSettings {
+    pub impression_tracking_enabled: bool,
+    pub full_screen_ad_view_tracking_enabled: bool,
+    pub pokestop_spinner_interaction_tracking_enabled: bool,
+    pub approach_gym_tracking_enabled: bool,
+    pub approach_raid_tracking_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
@@ -2323,77 +3417,90 @@ pub struct MoveSequenceSettings {
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObStickerCategorySettings {
+pub struct StickerCategorySettings {
     pub enabled: bool,
-    pub ob_sticker_category: Vec<ObStickerCategory>,
+    pub sticker_category: Vec<StickerCategory>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObStickerCategory {
+pub struct StickerCategory {
     pub category: String,
     pub sort_order: i64,
-    pub ob_sticker_category_enabled: bool,
-    pub ob_sticker_category_icon_asset_bundle: Option<String>,
+    pub active: bool,
+    pub preferred_category_icon: Option<String>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObTutorialSettings {
-    pub ob_tutorial_settings_bool2: bool,
-    pub ob_tutorial_settings_bool3: bool,
-    pub ob_tutorial_settings_bool4: bool,
-    pub ob_tutorial_settings_bool5: bool,
-    pub ob_tutorial_settings_bool6: bool,
-    pub ob_tutorial_settings_bool7: bool,
-    pub ob_tutorial_settings_bool8: bool,
-    pub ob_tutorial_settings_bool9: bool,
-    pub ob_tutorial_settings_bool10: bool,
-    pub ob_tutorial_settings_bool11: bool,
-    pub ob_tutorial_complete_reward: Vec<ObTutorialCompleteReward>,
+pub struct TutorialSettings {
+    pub friends_tutorial_enabled: bool,
+    pub gifts_tutorial_enabled: bool,
+    pub task_help_tutorials_enabled: bool,
+    pub revives_and_potions_tutorial_enabled: bool,
+    pub razzberry_catch_tutorial_enabled: bool,
+    pub lures_tutorial_enabled: bool,
+    pub trading_tutorial_enabled: bool,
+    pub lucky_trade_tutorial_enabled: bool,
+    pub lucky_friend_tutorial_enabled: bool,
+    pub pokemon_tagging_tutorial_enabled: bool,
+    pub tutorial_item_rewards: Vec<TutorialItemReward>,
+    pub type_effectiveness_tips_enabled: bool,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObTutorialCompleteReward {
-    pub ob_tutorial: String,
-    pub item_reward: Vec<ItemReward>,
+pub struct TutorialItemReward {
+    pub tutorial: String,
+    pub item: Vec<Item3>,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ItemReward {
+pub struct Item3 {
     pub item_id: String,
-    pub amount: i64,
+    pub count: i64,
 }
 
 #[derive(Default, Debug, Clone, PartialEq, Serialize, Deserialize)]
 #[serde(rename_all = "camelCase")]
-pub struct ObUsernameSuggestionSettings {
-    pub ob_feature_enabled: bool,
-    pub ob_username_suggestion_number1: i64,
-    pub ob_username_suggestion_number2: i64,
+pub struct UsernameSuggestionSettings {
+    pub feature_enabled: bool,
+    pub num_suggestions_displayed: i64,
+    pub num_suggestions_generated: i64,
 }
 
 #[cfg(test)]
 mod tests {
-    #[tokio::test]
-    async fn old_url() {
-        reqwest::get("https://raw.githubusercontent.com/pokemongo-dev-contrib/pokemongo-game-master/master/versions/latest/V2_GAME_MASTER.json")
-            .await
-            .unwrap()
-            .json::<crate::Root>()
-            .await
-            .unwrap();
+    use tokio::fs;
+
+    async fn deserialize<T>(file: &str, url: &str)
+    where
+        T: for<'de> serde::Deserialize<'de>,
+    {
+        let body = if let Ok(body) = fs::read_to_string(file).await {
+            body
+        } else {
+            let body = reqwest::get(url).await.unwrap().text().await.unwrap();
+            fs::write(file, body.as_bytes()).await.unwrap();
+            body
+        };
+
+        let jd = &mut serde_json::Deserializer::from_str(&body);
+        serde_path_to_error::deserialize::<_, T>(jd).unwrap();
     }
+
+    // #[tokio::test]
+    // async fn old_url() {
+    //     deserialize::<crate::Root>("V2_GAME_MASTER.json", "https://raw.githubusercontent.com/pokemongo-dev-contrib/pokemongo-game-master/master/versions/latest/V2_GAME_MASTER.json").await;
+    // }
 
     #[tokio::test]
     async fn new_url() {
-        reqwest::get("https://raw.githubusercontent.com/PokeMiners/game_masters/master/latest/latest.json")
-            .await
-            .unwrap()
-            .json::<Vec<crate::TemplateWrapper>>()
-            .await
-            .unwrap();
+        deserialize::<Vec<crate::TemplateWrapper>>(
+            "latest.json",
+            "https://raw.githubusercontent.com/PokeMiners/game_masters/master/latest/latest.json",
+        )
+        .await;
     }
 }
